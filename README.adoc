@@ -1,4 +1,5 @@
 = HelloWorld
+:toc:
 
 This is a minimal Apache Isis application, intended as a starting point to learn what Apache Isis is all about.
 
@@ -85,7 +86,7 @@ docker container run -d -p 8080:8080 apacheisis/simpleapp:latest
 This can then be accessed at link:http://localhost:8080[localhost:8080].
 
 
-== Externalized Configuration
+=== Externalized Configuration
 
 The application is configured to run in the `/run/secrets` directory.
 Configuration can be therefore be externalized by defining an `application.properties` secret for the Kubernetes or Docker Swarm cluster.
