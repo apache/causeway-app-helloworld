@@ -1,0 +1,31 @@
+= HelloWorld
+
+This is a minimal Apache Isis application, intended as a starting point to learn what Apache Isis is all about.
+
+For real-world development, we recommend you start with the link:https://github.com/apache/isis-app-simpleapp[simpleapp] starter app, which has more structure and includes unit and integration tests.
+
+
+== Quick start
+
+Build using:
+
+[source,bash]
+----
+mvn clean install
+----
+
+Run using:
+
+[source,bash]
+----
+mvn spring-boot:run
+----
+
+Login using: 
+
+* username: `sven`
+* password: `pass`
+
+The app runs with H2 running in-memory.
+
+
