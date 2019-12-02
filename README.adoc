@@ -31,7 +31,7 @@ The app runs with H2 running in-memory.
 
 
 
-== In Development
+== Development
 
 Apache Isis uses DataNucleus as its ORM, which requires that any entities are "enhanced", a post-compile process.
 
