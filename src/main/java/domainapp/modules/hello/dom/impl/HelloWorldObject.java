@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.dom.impl;
+package domainapp.modules.hello.dom.impl;
 
 import java.util.Comparator;
 
@@ -38,8 +38,8 @@ import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
-import domainapp.dom.types.Name;
-import domainapp.dom.types.Notes;
+import domainapp.modules.hello.dom.types.Name;
+import domainapp.modules.hello.dom.types.Notes;
 
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE, schema = "helloworld" )
 @javax.jdo.annotations.DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY, column = "id")

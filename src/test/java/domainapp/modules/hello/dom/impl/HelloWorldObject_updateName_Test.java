@@ -16,7 +16,9 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.dom.impl;
+package domainapp.modules.hello.dom.impl;
+
+import domainapp.modules.hello.dom.impl.HelloWorldObject;
 
 import org.junit.Test;
 

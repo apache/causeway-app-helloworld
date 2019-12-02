@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.dom.impl;
+package domainapp.modules.hello.dom.impl;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.jdo.jdosupport.IsisJdoSupport_v3_2;
 
-import domainapp.dom.types.Name;
+import domainapp.modules.hello.dom.types.Name;
 
 @DomainService(
         nature = NatureOfService.VIEW,
