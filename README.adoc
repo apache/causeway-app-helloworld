@@ -8,24 +8,41 @@ For real-world development, we recommend you start with the link:https://github.
 
 == Quick start
 
-Build using:
+* install prereqs:
 
+** Java 8 LTS (eg link:https://adoptopenjdk.net/[Adopt OpenJDK] distribution)
+** Maven 3.6 or later (http://maven.apache.org/download.cgi[download])
+* download and unzip
++
+[source,bash]
+----
+REPO=isis-app-helloworld
+BRANCH=master
+
+curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" > $REPO-$BRANCH.zip
+unzip $REPO-$BRANCH.zip
+mv $REPO-$BRANCH $REPO
+cd $REPO
+----
+
+* Build using Maven:
++
 [source,bash]
 ----
 mvn clean install
 ----
 
-Run using:
-
+* Run from Maven:
++
 [source,bash]
 ----
 mvn spring-boot:run
 ----
 
-Login using: 
+* Login using:
 
-* username: `sven`
-* password: `pass`
+** username: `sven`
+** password: `pass`
 
 The app runs with H2 running in-memory.
 
