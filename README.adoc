@@ -1,9 +1,14 @@
 = HelloWorld
 :toc:
 
-This is a minimal Apache Isis application, intended as a starting point to learn what Apache Isis is all about.
+This is a minimal link:https://isis.apache.org[Apache Isis] application, intended as a starting point to learn what the framework is all about.
 
-For real-world development, we recommend you start with the link:https://github.com/apache/isis-app-simpleapp[simpleapp] starter app, which has more structure and includes unit and integration tests.
+[TIP]
+====
+For real-world development, we recommend you instead start with the link:https://github.com/apache/isis-app-simpleapp[simpleapp] starter app.
+
+It provides more structure and includes examples of fixtures, unit tests, integration tests, and BDD (Cucumber) specs.
+====
 
 
 == Quick start
