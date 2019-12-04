@@ -10,7 +10,7 @@
 		<version>2.0.0-M3-SNAPSHOT</version>
 	</parent>
 
-	<groupId>org.apache.isis.examples.apps</groupId>
+	<groupId>org.apache.isis.starters</groupId>
 	<artifactId>helloworld</artifactId>
 
 	<name>Apache Isis App - HelloWorld</name>
