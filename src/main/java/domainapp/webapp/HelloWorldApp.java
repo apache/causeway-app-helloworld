@@ -3,6 +3,7 @@ package domainapp.webapp;
 import domainapp.modules.hello.HelloWorldModule;
 
 import org.apache.isis.config.IsisPresets;
+import org.apache.isis.extensions.h2console.IsisExtH2ConsoleModule;
 import org.apache.isis.jdo.IsisBootDataNucleus;
 import org.apache.isis.runtime.spring.IsisBoot;
 import org.apache.isis.security.shiro.IsisBootSecurityShiro;
@@ -30,6 +31,8 @@ public class HelloWorldApp extends SpringBootServletInitializer {
             IsisBootDataNucleus.class,
             IsisBootViewerRestfulObjects.class,
             IsisBootViewerWicket.class,
+
+            IsisExtH2ConsoleModule.class,
             HelloWorldModule.class
     })
     public static class AppManifest {
