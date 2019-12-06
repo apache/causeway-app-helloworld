@@ -3,12 +3,12 @@ package domainapp.webapp;
 import domainapp.modules.hello.HelloWorldModule;
 
 import org.apache.isis.config.presets.IsisPresets;
-import org.apache.isis.extensions.h2console.dom.IsisExtH2ConsoleModule;
-import org.apache.isis.persistence.jdo.datanucleus5.IsisBootDataNucleus;
-import org.apache.isis.runtime.spring.IsisBoot;
-import org.apache.isis.security.shiro.IsisBootSecurityShiro;
-import org.apache.isis.viewer.restfulobjects.viewer.IsisBootViewerRestfulObjects;
-import org.apache.isis.viewer.wicket.viewer.IsisBootViewerWicket;
+import org.apache.isis.extensions.h2console.dom.IsisModuleExtH2Console;
+import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
+import org.apache.isis.viewer.restfulobjects.viewer.IsisModuleRestfulObjectsViewer;
+import org.apache.isis.webboot.springboot.IsisModuleSpringBoot;
+import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
+import org.apache.isis.viewer.wicket.viewer.IsisModuleWicketViewer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -26,13 +26,13 @@ public class HelloWorldApp extends SpringBootServletInitializer {
             @PropertySource(IsisPresets.DataNucleusAutoCreate),
     })
     @Import({
-            IsisBoot.class,
-            IsisBootSecurityShiro.class,
-            IsisBootDataNucleus.class,
-            IsisBootViewerRestfulObjects.class,
-            IsisBootViewerWicket.class,
+            IsisModuleSpringBoot.class,
+            IsisModuleSecurityShiro.class,
+            IsisModuleJdoDataNucleus5.class,
+            IsisModuleRestfulObjectsViewer.class,
+            IsisModuleWicketViewer.class,
 
-            IsisExtH2ConsoleModule.class,
+            IsisModuleExtH2Console.class,
             HelloWorldModule.class
     })
     public static class AppManifest {
