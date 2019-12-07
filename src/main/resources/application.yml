@@ -17,12 +17,12 @@ isis:
     facet:
       css-class-fa:
         patterns:
-          new.*:fa-plus,\
-          add.*:fa-plus-square,\
-          create.*:fa-plus,\
-          update.*:fa-edit,\
-          delete.*:fa-trash,\
-          find.*:fa-search,\
+          new.*:fa-plus,
+          add.*:fa-plus-square,
+          create.*:fa-plus,
+          update.*:fa-edit,
+          delete.*:fa-trash,
+          find.*:fa-search,
           list.*:fa-list
 
       css-class:
