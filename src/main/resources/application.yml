@@ -42,8 +42,6 @@ isis:
         css: css/application.css
         js: scripts/application.js
         about: Hello World
-      welcome:
-        file: welcome.html #not implemented, currently only welcome.text is implemented
 
       credit[0]:
         image: /images/apache-isis/logo-48x48.png
