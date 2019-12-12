@@ -43,10 +43,10 @@ isis:
         js: scripts/application.js
         about: Hello World
 
-      credit[0]:
-        image: /images/apache-isis/logo-48x48.png
-        name: Apache Isis
-        url: http://isis.apache.org
+      credit:
+        - url:  http://isis.apache.org
+          image: /images/apache-isis/logo-48x48.png
+          name: Apache Isis
 
       themes:
         initial: Flatly
@@ -58,7 +58,6 @@ isis:
 
       development-utilities:
         enable: true
-
 
   persistor:
     datanucleus:
