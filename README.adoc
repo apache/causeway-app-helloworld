@@ -24,8 +24,7 @@ It provides more structure and includes examples of fixtures, unit tests, integr
 REPO=isis-app-helloworld
 BRANCH=master
 
-curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" > $REPO-$BRANCH.zip
-unzip $REPO-$BRANCH.zip
+curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" | jar xv
 mv $REPO-$BRANCH $REPO
 cd $REPO
 ----
