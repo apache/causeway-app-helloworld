@@ -7,11 +7,12 @@
 	<parent>
 		<groupId>org.apache.isis.app</groupId>
 		<artifactId>isis-app-starter-parent</artifactId>
-		<version>2.0.0-M3-SNAPSHOT</version>
+		<version>2.0.0-M2.20191216-0404-91276ff1</version>
 	</parent>
 
 	<groupId>org.apache.isis.starters</groupId>
 	<artifactId>helloworld</artifactId>
+	<version>2.0.0-M3-SNAPSHOT</version>
 
 	<name>Apache Isis App - HelloWorld</name>
 
@@ -124,6 +125,31 @@
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+		<profile>
+			<id>repo-incode-cloud</id>
+			<activation>
+				<property>
+					<name>!skip.repo-incode-cloud</name>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</snapshots>
+					<id>repo-incode-cloud</id>
+					<name>repo.incode.cloud</name>
+					<url>https://repo.incode.work</url>
+				</repository>
+			</repositories>
 		</profile>
 	</profiles>
 
