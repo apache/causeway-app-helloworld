@@ -1,18 +1,22 @@
 package domainapp.webapp;
 
-import domainapp.modules.hello.HelloWorldModule;
-
-import org.apache.isis.config.presets.IsisPresets;
-import org.apache.isis.extensions.h2console.dom.IsisModuleExtH2Console;
-import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
-import org.apache.isis.viewer.restfulobjects.viewer.IsisModuleRestfulObjectsViewer;
-import org.apache.isis.webboot.springboot.IsisModuleSpringBoot;
-import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
-import org.apache.isis.viewer.wicket.viewer.IsisModuleWicketViewer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
+
+import org.apache.isis.core.config.presets.IsisPresets;
+import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
+import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
+import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
+import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
+import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
+import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
+
+import domainapp.modules.hello.HelloWorldModule;
 
 @SpringBootApplication
 @Import({
@@ -26,13 +30,13 @@ public class HelloWorldApp extends SpringBootServletInitializer {
             @PropertySource(IsisPresets.DataNucleusAutoCreate),
     })
     @Import({
-            IsisModuleSpringBoot.class,
+            IsisModuleCoreRuntimeServices.class,
             IsisModuleSecurityShiro.class,
             IsisModuleJdoDataNucleus5.class,
-            IsisModuleRestfulObjectsViewer.class,
-            IsisModuleWicketViewer.class,
+            IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
+            IsisModuleViewerWicketViewer.class,
 
-            IsisModuleExtH2Console.class,
+            IsisModuleTestingH2ConsoleUi.class,
             HelloWorldModule.class
     })
     public static class AppManifest {
