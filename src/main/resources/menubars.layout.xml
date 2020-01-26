@@ -4,13 +4,13 @@
         <mb3:menu>
             <mb3:named>Hello World Objects</mb3:named>
             <mb3:section>
-                <mb3:serviceAction objectType="helloworld.HelloWorldObjects" id="create">
+                <mb3:serviceAction objectType="hello.HelloWorldObjects" id="create">
                     <cpt:named>Create</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="helloworld.HelloWorldObjects" id="findByName">
+                <mb3:serviceAction objectType="hello.HelloWorldObjects" id="findByName">
                     <cpt:named>Find By Name</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="helloworld.HelloWorldObjects" id="listAll">
+                <mb3:serviceAction objectType="hello.HelloWorldObjects" id="listAll">
                     <cpt:named>List All</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
@@ -22,17 +22,6 @@
     <mb3:secondary>
         <mb3:menu>
             <mb3:named>Prototyping</mb3:named>
-            <mb3:section>
-                <mb3:serviceAction objectType="isisApplib.FixtureScriptsDefault" id="runFixtureScript">
-                    <cpt:named>Run Fixture Script</cpt:named>
-                </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.FixtureScriptsDefault" id="runFixtureScriptWithAutoComplete">
-                    <cpt:named>Run Fixture Script</cpt:named>
-                </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.FixtureScriptsDefault" id="recreateObjectsAndReturnFirst">
-                    <cpt:named>Recreate Objects And Return First</cpt:named>
-                </mb3:serviceAction>
-            </mb3:section>
             <mb3:section>
                 <mb3:serviceAction objectType="isisApplib.LayoutServiceMenu" id="downloadLayouts">
                     <cpt:named>Download Object Layouts (ZIP)</cpt:named>

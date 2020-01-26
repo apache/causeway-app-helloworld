@@ -9,19 +9,6 @@ isis:
     annotation:
       action:
         explicit: true
-      action-layout:
-        css-class-fa:
-          patterns:
-            new.*:fa-plus,
-            add.*:fa-plus-square,
-            create.*:fa-plus,
-            update.*:fa-edit,
-            delete.*:fa-trash,
-            find.*:fa-search,
-            list.*:fa-list
-        css-class:
-          patterns:
-            delete.*:btn-danger
       domain-object:
         editing: false
 
@@ -31,41 +18,38 @@ isis:
         allow-deprecated: false
         no-params-only: true
         explicit-object-type: true
-        service-actions-only: true
-        mixins-only: true
 
   viewer:
     wicket:
       application:
-        menubars-layout-xml: domainapp/webapp/application/menubars.layout.xml
-        brand-logo-header: /images/apache-isis/logo-48x48.png
-        favicon-url: /images/favicon.png
-        name: Hello World App
-        css: css/application.css
-        js: scripts/application.js
         about: Hello World
+        brand-logo-header: images/apache-isis/logo-48x48.png
+        css: css/application.css
+        favicon-url: images/favicon.png
+        js: scripts/application.js
+        menubars-layout-xml: menubars.layout.xml
+        name: Hello World App
 
       credit:
         - url:  http://isis.apache.org
-          image: /images/apache-isis/logo-48x48.png
+          image: images/apache-isis/logo-48x48.png
           name: Apache Isis
 
       themes:
-        initial: Flatly
-        showChooser: true
-        enabled: Cosmo,Flatly,Darkly,Sandstone,United
+        show-chooser: true
+
+      bookmarked-pages:
+        show-chooser: true
+        show-drop-down-on-footer: true
 
       max-title-length-in-standalone-tables: 0
       max-title-length-in-parented-tables: 0
 
-      development-utilities:
-        enable: true
-
   persistence:
     jdo-datanucleus:
       impl:
-        # note that properties under 'isis.persistor.datanucleus.impl' are passed through directly
-        # to DataNucleus, and must use camelCase rather than kebab-case
+        # note that properties under 'isis.persistence.jdo-datanucleus.impl' are passed through directly
+        # to DataNucleus, and use variously camelCase or PascalCase rather than kebab-case
         datanucleus:
           schema:
             validateTables: true

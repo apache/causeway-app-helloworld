@@ -1,4 +1,4 @@
-package domainapp.modules.hello.dom.types;
+package domainapp.modules.hello.types;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,17 +11,14 @@ import org.apache.isis.applib.annotation.Editing;
 import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
-import org.apache.isis.applib.annotation.PropertyLayout;
 
-@Column(length = Notes.MAX_LEN, allowsNull = "true")
-@Property(editing = Editing.ENABLED, maxLength = Notes.MAX_LEN)
-@PropertyLayout(multiLine = 5)
-@Parameter(maxLength = Notes.MAX_LEN)
-@ParameterLayout(multiLine = 5)
+@Column(length = Name.MAX_LEN, allowsNull = "false")
+@Property(editing = Editing.DISABLED, maxLength = Name.MAX_LEN)
+@Parameter(maxLength = Name.MAX_LEN)
+@ParameterLayout(named = "Name")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Notes {
+public @interface Name {
 
-    int MAX_LEN = 4000;
-
+    int MAX_LEN = 40;
 }

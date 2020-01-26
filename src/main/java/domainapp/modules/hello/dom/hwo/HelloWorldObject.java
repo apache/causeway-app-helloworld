@@ -1,4 +1,4 @@
-package domainapp.modules.hello.dom.impl;
+package domainapp.modules.hello.dom.hwo;
 
 import java.util.Comparator;
 
@@ -10,7 +10,6 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.Auditing;
-import org.apache.isis.applib.annotation.CommandReification;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.MemberOrder;
@@ -20,10 +19,10 @@ import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
-import domainapp.modules.hello.dom.types.Name;
-import domainapp.modules.hello.dom.types.Notes;
+import domainapp.modules.hello.types.Name;
+import domainapp.modules.hello.types.Notes;
 
-@javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE, schema = "helloworld" )
+@javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE, schema = "hello" )
 @javax.jdo.annotations.DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY, column = "id")
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column ="version")
 @javax.jdo.annotations.Unique(name="HelloWorldObject_name_UNQ", members = {"name"})
@@ -63,7 +62,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
     @Action(
             semantics = SemanticsOf.IDEMPOTENT,
-            command = CommandReification.ENABLED, publishing = Publishing.ENABLED,
+            publishing = Publishing.ENABLED,
             associateWith = "name"
     )
     public HelloWorldObject updateName(

@@ -1,8 +1,7 @@
-package domainapp.modules.hello.dom.impl;
+package domainapp.modules.hello.dom.hwo;
 
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.jdo.JDOQLTypedQuery;
 
 import org.apache.isis.applib.annotation.Action;
@@ -15,13 +14,24 @@ import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
 
-import domainapp.modules.hello.dom.types.Name;
+import domainapp.modules.hello.dom.hwo.QHelloWorldObject;
+import domainapp.modules.hello.types.Name;
 
 @DomainService(
         nature = NatureOfService.VIEW,
-        objectType = "helloworld.HelloWorldObjects"
+        objectType = "hello.HelloWorldObjects"
         )
 public class HelloWorldObjects {
+
+    private final RepositoryService repositoryService;
+    private final IsisJdoSupport_v3_2 isisJdoSupport;
+
+    public HelloWorldObjects(
+            final RepositoryService repositoryService,
+            final IsisJdoSupport_v3_2 isisJdoSupport) {
+        this.repositoryService = repositoryService;
+        this.isisJdoSupport = isisJdoSupport;
+    }
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
@@ -52,7 +62,5 @@ public class HelloWorldObjects {
         return repositoryService.allInstances(HelloWorldObject.class);
     }
 
-    @Inject RepositoryService repositoryService;
-    @Inject IsisJdoSupport_v3_2 isisJdoSupport;
 
 }

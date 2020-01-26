@@ -21,9 +21,10 @@ It provides more structure and includes examples of fixtures, unit tests, integr
 +
 [source,bash]
 ----
-REPO=isis-app-helloworld
+APP=simpleapp
 BRANCH=master
 
+REPO=isis-app-$APP
 curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" | jar xv
 mv $REPO-$BRANCH $REPO
 cd $REPO
@@ -42,6 +43,8 @@ mvn clean install
 ----
 mvn spring-boot:run
 ----
+
+* Browse to http://localhost:8080.
 
 * Login using:
 
