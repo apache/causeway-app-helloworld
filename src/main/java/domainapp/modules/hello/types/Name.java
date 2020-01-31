@@ -13,7 +13,7 @@ import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
 
 @Column(length = Name.MAX_LEN, allowsNull = "false")
-@Property(editing = Editing.DISABLED, maxLength = Name.MAX_LEN)
+@Property(maxLength = Name.MAX_LEN)
 @Parameter(maxLength = Name.MAX_LEN)
 @ParameterLayout(named = "Name")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })

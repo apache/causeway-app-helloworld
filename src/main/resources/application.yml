@@ -9,8 +9,6 @@ isis:
     annotation:
       action:
         explicit: true
-      domain-object:
-        editing: false
 
   core:
     meta-model:
