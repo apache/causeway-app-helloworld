@@ -5,7 +5,7 @@ This is a minimal link:https://isis.apache.org[Apache Isis] application, intende
 
 [TIP]
 ====
-For real-world development, we recommend you instead start with the link:https://github.com/apache/isis-app-simpleapp[simpleapp] starter app.
+For real-world development, we recommend you instead start with the link:https://github.com/apache/isis-app-simpleapp[SimpleApp] starter app.
 
 It provides more structure and includes examples of fixtures, unit tests, integration tests, and BDD (Cucumber) specs.
 ====
