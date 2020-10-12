@@ -1,6 +1,9 @@
 = HelloWorld
 :toc:
 
+image:https://github.com/apache/isis-app-helloworld/workflows/Build%20w/%20Maven%20+%20Jdk%208/badge.svg[]
+image:https://github.com/apache/isis-app-helloworld/workflows/Build%20w/%20Maven%20+%20Jdk%2015/badge.svg[]
+
 This is a minimal link:https://isis.apache.org[Apache Isis] application, intended as a starting point to learn what the framework is all about.
 
 [TIP]
