@@ -1,5 +1,6 @@
 = HelloWorld
 :toc:
+:toc-placement!:
 
 image:https://github.com/apache/isis-app-helloworld/workflows/Build%20w/%20Maven%20+%20Jdk%208/badge.svg[]
 image:https://github.com/apache/isis-app-helloworld/workflows/Build%20w/%20Maven%20+%20Jdk%2015/badge.svg[]
@@ -13,6 +14,7 @@ For real-world development, we recommend you instead start with the link:https:/
 It provides more structure and includes examples of fixtures, unit tests, integration tests, and BDD (Cucumber) specs.
 ====
 
+toc::[]
 
 == Quick start
 
