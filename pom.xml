@@ -52,7 +52,7 @@
 			<artifactId>isis-mavendeps-webapp</artifactId>
 			<type>pom</type>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.isis.mavendeps</groupId>
 			<artifactId>isis-mavendeps-jdk11</artifactId>
@@ -126,31 +126,6 @@
 					</plugin>
 				</plugins>
 			</build>
-		</profile>
-		<profile>
-			<id>repo-incode-work</id>
-			<activation>
-				<property>
-					<name>!skip.repo-incode-work</name>
-				</property>
-			</activation>
-			<repositories>
-				<repository>
-					<releases>
-						<enabled>true</enabled>
-						<updatePolicy>always</updatePolicy>
-						<checksumPolicy>fail</checksumPolicy>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-						<updatePolicy>always</updatePolicy>
-						<checksumPolicy>fail</checksumPolicy>
-					</snapshots>
-        			<id>repo-incode-work</id>
-        			<name>Incode Work (maven)</name>
-					<url>https://repo.incode.work</url>
-				</repository>
-			</repositories>
 		</profile>
 	</profiles>
 
