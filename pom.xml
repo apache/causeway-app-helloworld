@@ -108,7 +108,7 @@
 								<workingDirectory>/run/secrets</workingDirectory>
 							</container>
 							<to>
-								<image>docker.io/apacheisis/helloworld:latest</image>
+								<image>docker.io/apacheisis/helloworld:${env.REVISION}</image>
 								<auth>
 									<username>${env.DOCKER_REGISTRY_USERNAME}</username>
 									<password>${env.DOCKER_REGISTRY_PASSWORD}</password>
