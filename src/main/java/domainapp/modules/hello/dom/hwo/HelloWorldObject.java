@@ -9,7 +9,6 @@ import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
-import org.apache.isis.applib.annotation.Auditing;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.MemberOrder;
@@ -26,7 +25,7 @@ import domainapp.modules.hello.types.Notes;
 @javax.jdo.annotations.DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY, column = "id")
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column ="version")
 @javax.jdo.annotations.Unique(name="HelloWorldObject_name_UNQ", members = {"name"})
-@DomainObject(auditing = Auditing.ENABLED)
+@DomainObject(entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()  // causes UI events to be triggered
 public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
@@ -62,7 +61,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
     @Action(
             semantics = SemanticsOf.IDEMPOTENT,
-            publishing = Publishing.ENABLED,
+            executionPublishing = Publishing.ENABLED,
             associateWith = "name"
     )
     public HelloWorldObject updateName(

@@ -12,7 +12,7 @@ import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.RestrictTo;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
+import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
 
 import domainapp.modules.hello.dom.hwo.QHelloWorldObject;
 import domainapp.modules.hello.types.Name;
@@ -24,13 +24,13 @@ import domainapp.modules.hello.types.Name;
 public class HelloWorldObjects {
 
     private final RepositoryService repositoryService;
-    private final IsisJdoSupport_v3_2 isisJdoSupport;
+    private final JdoSupportService jdoSupportService;
 
     public HelloWorldObjects(
             final RepositoryService repositoryService,
-            final IsisJdoSupport_v3_2 isisJdoSupport) {
+            final JdoSupportService jdoSupportService) {
         this.repositoryService = repositoryService;
-        this.isisJdoSupport = isisJdoSupport;
+        this.jdoSupportService = jdoSupportService;
     }
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
@@ -48,7 +48,7 @@ public class HelloWorldObjects {
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public List<HelloWorldObject> findByName(
             @Name final String name) {
-        JDOQLTypedQuery<HelloWorldObject> q = isisJdoSupport.newTypesafeQuery(HelloWorldObject.class);
+        JDOQLTypedQuery<HelloWorldObject> q = jdoSupportService.newTypesafeQuery(HelloWorldObject.class);
         final QHelloWorldObject cand = QHelloWorldObject.candidate();
         q = q.filter(
                 cand.name.indexOf(q.stringParameter("name")).ne(-1)

@@ -18,19 +18,19 @@ import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.when;
 
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
+import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
 
 @ExtendWith(MockitoExtension.class)
 class HellWorldObjects_Test {
 
     @Mock RepositoryService mockRepositoryService;
-    @Mock IsisJdoSupport_v3_2 mockIsisJdoSupport_v3_2;
+    @Mock JdoSupportService mockJdoSupportService;
 
     HelloWorldObjects objects;
 
     @BeforeEach
     public void setUp() {
-        objects = new HelloWorldObjects(mockRepositoryService, mockIsisJdoSupport_v3_2);
+        objects = new HelloWorldObjects(mockRepositoryService, mockJdoSupportService);
     }
 
     @Nested
