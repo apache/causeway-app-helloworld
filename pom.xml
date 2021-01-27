@@ -12,10 +12,10 @@
 	</parent>
 
 	<groupId>org.apache.isis.starters</groupId>
-	<artifactId>helloworld</artifactId>
+	<artifactId>helloworld-jdo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
-	<name>Apache Isis App - HelloWorld</name>
+	<name>Apache Isis App - HelloWorld (JDO)</name>
 
 	<packaging>jar</packaging>
 
