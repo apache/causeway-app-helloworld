@@ -3,33 +3,46 @@ package domainapp.modules.hello.dom.hwo;
 import java.util.Comparator;
 
 import javax.inject.Inject;
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
+import org.apache.isis.persistence.jpa.applib.integration.JpaEntityInjectionPointResolver;
 
 import domainapp.modules.hello.types.Name;
 import domainapp.modules.hello.types.Notes;
 
-@javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE, schema = "hello" )
-@javax.jdo.annotations.DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY, column = "id")
-@javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column ="version")
-@javax.jdo.annotations.Unique(name="HelloWorldObject_name_UNQ", members = {"name"})
-@DomainObject(entityChangePublishing = Publishing.ENABLED)
+@javax.persistence.Entity
+@javax.persistence.Table(
+        schema="hello",
+        uniqueConstraints = {
+                @javax.persistence.UniqueConstraint(name = "HelloWorldObject_name_UNQ", columnNames = {"name"})
+        }
+)
+@javax.persistence.EntityListeners(JpaEntityInjectionPointResolver.class) // injection support
+@DomainObject(objectType = "hello.HelloWorldObject", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()  // causes UI events to be triggered
 public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
-    private HelloWorldObject(){}
+    protected HelloWorldObject(){}
+
+    @javax.persistence.Id
+    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
+    @javax.persistence.Column(nullable = false)
+    private Long id;
+
+    @javax.persistence.Version
+    @javax.persistence.Column(name = "OPTLOCK")
+    private int version;
+
 
     public HelloWorldObject(final String name) {
         this.name = name;
@@ -40,6 +53,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
     @Name
+    @javax.persistence.Column(length = Name.MAX_LEN, nullable = false)
     @MemberOrder(name = "identity", sequence = "1")
     private String name;
     public String getName() {
@@ -50,6 +64,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
     @Notes
+    @javax.persistence.Column(length = Notes.MAX_LEN, nullable = true)
     @MemberOrder(name = "details", sequence = "1")
     private String notes;
     public String getNotes() {
@@ -93,8 +108,8 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
-    @Inject RepositoryService repositoryService;
-    @Inject TitleService titleService;
-    @Inject MessageService messageService;
+    @Inject @javax.persistence.Transient RepositoryService repositoryService;
+    @Inject @javax.persistence.Transient TitleService titleService;
+    @Inject @javax.persistence.Transient MessageService messageService;
 
 }

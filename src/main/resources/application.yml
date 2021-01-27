@@ -61,6 +61,9 @@ isis:
             level2:
               type: none
               mode: ENABLE_SELECTIVE
+    jpa:
+      auto-create-schemas: hello
+      create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
 
 resteasy:
   jaxrs:
@@ -74,4 +77,3 @@ server:
 spring:
   banner:
     location: banner.txt
-

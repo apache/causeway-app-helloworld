@@ -18,19 +18,18 @@ import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.when;
 
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
 
 @ExtendWith(MockitoExtension.class)
-class HellWorldObjects_Test {
+class HelloWorldObjects_Test {
 
     @Mock RepositoryService mockRepositoryService;
-    @Mock JdoSupportService mockJdoSupportService;
+    @Mock HelloWorldRepository mockHelloWorldRepository;
 
     HelloWorldObjects objects;
 
     @BeforeEach
     public void setUp() {
-        objects = new HelloWorldObjects(mockRepositoryService, mockJdoSupportService);
+        objects = new HelloWorldObjects(mockRepositoryService, mockHelloWorldRepository);
     }
 
     @Nested
@@ -44,7 +43,7 @@ class HellWorldObjects_Test {
 
             // expect
             when(mockRepositoryService.persist(
-                    argThat((ArgumentMatcher<HelloWorldObject>) simpleObject -> Objects.equals(simpleObject.getName(), someName)))
+                    argThat((ArgumentMatcher<HelloWorldObject>) helloWorldObject -> Objects.equals(helloWorldObject.getName(), someName)))
             ).then((Answer<HelloWorldObject>) invocation -> invocation.getArgument(0));
 
             // when
@@ -66,7 +65,7 @@ class HellWorldObjects_Test {
             final List<HelloWorldObject> all = new ArrayList<>();
 
             // expecting
-            when(mockRepositoryService.allInstances(HelloWorldObject.class))
+            when(mockHelloWorldRepository.findAll())
                 .thenReturn(all);
 
             // when

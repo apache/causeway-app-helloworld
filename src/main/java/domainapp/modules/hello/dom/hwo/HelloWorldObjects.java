@@ -2,8 +2,6 @@ package domainapp.modules.hello.dom.hwo;
 
 import java.util.List;
 
-import javax.jdo.JDOQLTypedQuery;
-
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainService;
@@ -12,9 +10,7 @@ import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.RestrictTo;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
 
-import domainapp.modules.hello.dom.hwo.QHelloWorldObject;
 import domainapp.modules.hello.types.Name;
 
 @DomainService(
@@ -24,13 +20,13 @@ import domainapp.modules.hello.types.Name;
 public class HelloWorldObjects {
 
     private final RepositoryService repositoryService;
-    private final JdoSupportService jdoSupportService;
+    private final HelloWorldRepository helloWorldRepository;
 
     public HelloWorldObjects(
             final RepositoryService repositoryService,
-            final JdoSupportService jdoSupportService) {
+            final HelloWorldRepository helloWorldRepository) {
         this.repositoryService = repositoryService;
-        this.jdoSupportService = jdoSupportService;
+        this.helloWorldRepository = helloWorldRepository;
     }
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
@@ -48,18 +44,12 @@ public class HelloWorldObjects {
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public List<HelloWorldObject> findByName(
             @Name final String name) {
-        JDOQLTypedQuery<HelloWorldObject> q = jdoSupportService.newTypesafeQuery(HelloWorldObject.class);
-        final QHelloWorldObject cand = QHelloWorldObject.candidate();
-        q = q.filter(
-                cand.name.indexOf(q.stringParameter("name")).ne(-1)
-                );
-        return q.setParameter("name", name)
-                .executeList();
+        return helloWorldRepository.findByNameContaining(name);
     }
 
     @Action(semantics = SemanticsOf.SAFE, restrictTo = RestrictTo.PROTOTYPING)
     public List<HelloWorldObject> listAll() {
-        return repositoryService.allInstances(HelloWorldObject.class);
+        return helloWorldRepository.findAll();
     }
 
 
