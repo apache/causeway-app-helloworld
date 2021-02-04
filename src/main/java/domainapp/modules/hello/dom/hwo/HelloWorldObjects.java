@@ -14,7 +14,6 @@ import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
 
-import domainapp.modules.hello.dom.hwo.QHelloWorldObject;
 import domainapp.modules.hello.types.Name;
 
 @DomainService(

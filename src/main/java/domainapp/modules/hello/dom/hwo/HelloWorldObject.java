@@ -29,7 +29,7 @@ import domainapp.modules.hello.types.Notes;
 @DomainObjectLayout()  // causes UI events to be triggered
 public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
-    private HelloWorldObject(){}
+    public HelloWorldObject(){}
 
     public HelloWorldObject(final String name) {
         this.name = name;
