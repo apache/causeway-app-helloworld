@@ -44,24 +44,7 @@ isis:
       max-title-length-in-parented-tables: 0
 
   persistence:
-    jdo-datanucleus:
-      impl:
-        # note that properties under 'isis.persistence.jdo-datanucleus.impl' are passed through directly
-        # to DataNucleus, and use variously camelCase or PascalCase rather than kebab-case
-        datanucleus:
-          schema:
-            validateTables: true
-            validateConstraints: true
-
-          persistenceByReachabilityAtCommit: false
-          identifier:
-            case: MixedCase
-
-          cache:
-            level2:
-              type: none
-              mode: ENABLE_SELECTIVE
-    jpa:
+    schema:
       auto-create-schemas: hello
       create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
 
