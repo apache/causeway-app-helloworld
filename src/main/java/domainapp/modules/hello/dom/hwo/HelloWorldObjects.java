@@ -12,7 +12,7 @@ import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.RestrictTo;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
+import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
 import domainapp.modules.hello.types.Name;
 

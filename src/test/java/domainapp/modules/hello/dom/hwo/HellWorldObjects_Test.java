@@ -18,7 +18,7 @@ import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.when;
 
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
+import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
 @ExtendWith(MockitoExtension.class)
 class HellWorldObjects_Test {
