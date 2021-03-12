@@ -15,7 +15,7 @@
 	<artifactId>helloworld-jpa</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
-	<name>Apache Isis App - HelloWorld (JPA)</name>
+	<name>HelloWorld (JPA)</name>
 
 	<packaging>jar</packaging>
 
