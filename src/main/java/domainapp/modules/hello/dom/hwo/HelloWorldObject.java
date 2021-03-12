@@ -23,6 +23,14 @@ import domainapp.modules.hello.types.Notes;
 
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE, schema = "hello" )
 @javax.jdo.annotations.DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY, column = "id")
+@javax.jdo.annotations.Queries(
+        @javax.jdo.annotations.Query(
+                name = "findByName",
+                value = "SELECT " +
+                        "FROM domainapp.modules.hello.dom.hwo.HelloWorldObject " +
+                        "WHERE name.indexOf(:name) > 0"
+        )
+)
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column ="version")
 @javax.jdo.annotations.Unique(name="HelloWorldObject_name_UNQ", members = {"name"})
 @DomainObject(entityChangePublishing = Publishing.ENABLED)

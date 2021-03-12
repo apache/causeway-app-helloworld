@@ -15,7 +15,7 @@
 	<artifactId>helloworld-jdo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
-	<name>Apache Isis App - HelloWorld (JDO)</name>
+	<name>HelloWorld (JDO)</name>
 
 	<packaging>jar</packaging>
 

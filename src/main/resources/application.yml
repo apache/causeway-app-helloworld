@@ -47,7 +47,7 @@ isis:
     schema:
       auto-create-schemas: hello
       create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
-    
+
 # note that properties under 'datanucleus' must use camelCase rather than kebab-case
 datanucleus:
   schema:
@@ -75,4 +75,3 @@ server:
 spring:
   banner:
     location: banner.txt
-

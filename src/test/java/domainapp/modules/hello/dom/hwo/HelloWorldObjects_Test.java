@@ -21,7 +21,7 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
 @ExtendWith(MockitoExtension.class)
-class HellWorldObjects_Test {
+class HelloWorldObjects_Test {
 
     @Mock RepositoryService mockRepositoryService;
     @Mock JdoSupportService mockJdoSupportService;
@@ -30,7 +30,7 @@ class HellWorldObjects_Test {
 
     @BeforeEach
     public void setUp() {
-        objects = new HelloWorldObjects(mockRepositoryService, mockJdoSupportService);
+        objects = new HelloWorldObjects(mockRepositoryService);
     }
 
     @Nested

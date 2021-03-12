@@ -11,6 +11,7 @@ import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.RestrictTo;
 import org.apache.isis.applib.annotation.SemanticsOf;
+import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
@@ -23,13 +24,10 @@ import domainapp.modules.hello.types.Name;
 public class HelloWorldObjects {
 
     private final RepositoryService repositoryService;
-    private final JdoSupportService jdoSupportService;
 
     public HelloWorldObjects(
-            final RepositoryService repositoryService,
-            final JdoSupportService jdoSupportService) {
+            final RepositoryService repositoryService) {
         this.repositoryService = repositoryService;
-        this.jdoSupportService = jdoSupportService;
     }
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
@@ -47,13 +45,10 @@ public class HelloWorldObjects {
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public List<HelloWorldObject> findByName(
             @Name final String name) {
-        JDOQLTypedQuery<HelloWorldObject> q = jdoSupportService.newTypesafeQuery(HelloWorldObject.class);
-        final QHelloWorldObject cand = QHelloWorldObject.candidate();
-        q = q.filter(
-                cand.name.indexOf(q.stringParameter("name")).ne(-1)
-                );
-        return q.setParameter("name", name)
-                .executeList();
+        return repositoryService.allMatches(
+                Query.named(HelloWorldObject.class, "findByName")
+                      .withParameter("name", name)
+        );
     }
 
     @Action(semantics = SemanticsOf.SAFE, restrictTo = RestrictTo.PROTOTYPING)
