@@ -26,6 +26,8 @@ import domainapp.modules.hello.HelloWorldModule;
         IsisModuleTestingH2ConsoleUi.class,
         HelloWorldModule.class
 })
-@PropertySource(IsisPresets.NoTranslations)
+@PropertySources({
+    @PropertySource(IsisPresets.NoTranslations),
+})
 public class AppManifest {
 }
