@@ -19,6 +19,10 @@
 
     <packaging>jar</packaging>
 
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
     <build>
         <resources>
             <resource>
@@ -95,7 +99,7 @@
                         <artifactId>jib-maven-plugin</artifactId>
                         <configuration>
                             <from>
-                                <image>openjdk:8-alpine</image>
+                                <image>adoptopenjdk/openjdk11:x86_64-alpine-jre-11.0.10_9</image>
                             </from>
                             <container>
                                 <jvmFlags>
