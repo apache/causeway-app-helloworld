@@ -28,7 +28,7 @@ import domainapp.modules.hello.types.Notes;
                 name = "findByName",
                 value = "SELECT " +
                         "FROM domainapp.modules.hello.dom.hwo.HelloWorldObject " +
-                        "WHERE name.indexOf(:name) > 0"
+                        "WHERE name.indexOf(:name) >= 0"
         )
 )
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column ="version")
