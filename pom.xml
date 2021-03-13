@@ -41,6 +41,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -75,20 +78,11 @@
             <artifactId>isis-testing-h2console-ui</artifactId>
         </dependency>
 
-
-        <!-- TEST DEPENDENCIES -->
-        <dependency>
-            <groupId>org.apache.isis.mavendeps</groupId>
-            <artifactId>isis-mavendeps-unittests</artifactId>
-            <scope>test</scope>
-            <type>pom</type>
-        </dependency>
-
     </dependencies>
 
     <profiles>
         <profile>
-            <id>docker</id>
+            <id>deploy-to-docker-io</id>
             <activation>
                 <property>
                     <name>docker</name>
@@ -111,29 +105,18 @@
                                 <ports>
                                     <port>8080</port>
                                 </ports>
-                                <workingDirectory>/run/secrets</workingDirectory>
                             </container>
                             <to>
-                                <image>docker.io/apacheisis/helloworld:latest</image>
-<!--
-will use default credentials, eg in ~/.docker/config.json.
-Uncomment to override.
-
+                                <image>docker.io/apacheisis/helloworld</image>
+                                <tags>
+                                    <tag>${env.REVISION}</tag>
+                                </tags>
                                 <auth>
                                     <username>${env.DOCKER_REGISTRY_USERNAME}</username>
                                     <password>${env.DOCKER_REGISTRY_PASSWORD}</password>
                                 </auth>
--->
                             </to>
                         </configuration>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>build</goal>
-                                </goals>
-                            </execution>
-                        </executions>
                     </plugin>
                 </plugins>
             </build>
