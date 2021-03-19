@@ -12,7 +12,10 @@ import domainapp.modules.hello.dom.hwo.HelloWorldObject;
 @Import({})
 @ComponentScan
 @EnableJpaRepositories
-@EntityScan(basePackageClasses = {HelloWorldModule.class})
+@EntityScan(
+    basePackageClasses = {
+        HelloWorldModule.class
+})
 public class HelloWorldModule {
 
 }
