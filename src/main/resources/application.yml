@@ -48,6 +48,12 @@ isis:
       auto-create-schemas: hello
       create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
 
+# workaround for https://issues.apache.org/jira/browse/ISIS-2583: not used, but needed to prevent NPE
+datanucleus:
+  cache:
+    level2:
+      type: soft
+
 resteasy:
   jaxrs:
     app:
