@@ -61,6 +61,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.isis.security</groupId>
+            <artifactId>isis-security-spring</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
             <artifactId>isis-mavendeps-jdo</artifactId>
             <type>pom</type>
