@@ -23,6 +23,7 @@
         <mb3:menu>
             <mb3:named>Prototyping</mb3:named>
             <mb3:section>
+                <mb3:named>Layouts</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadLayouts">
                     <cpt:named>Download Object Layouts (ZIP)</cpt:named>
                 </mb3:serviceAction>
@@ -31,6 +32,7 @@
                 </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
+                <mb3:named>Meta Model</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelXml">
                     <cpt:named>Download Meta Model (XML)</cpt:named>
                 </mb3:serviceAction>
@@ -39,11 +41,16 @@
                 </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
+                <mb3:named>Persistence</mb3:named>
                 <mb3:serviceAction objectType="isis.persistence.jdo.JdoMetamodelMenu" id="downloadMetamodels">
                     <cpt:named>Download JDO Metamodels (ZIP)</cpt:named>
                 </mb3:serviceAction>
+                <mb3:serviceAction objectType="isis.ext.h2Console.H2ManagerMenu" id="openH2Console">
+                    <cpt:named>H2 Console</cpt:named>
+                </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
+                <mb3:named>REST API</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.SwaggerServiceMenu" id="openSwaggerUi">
                     <cpt:named>Open Swagger Ui</cpt:named>
                 </mb3:serviceAction>
@@ -55,6 +62,7 @@
                 </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
+                <mb3:named>Translations</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.TranslationServicePoMenu" id="downloadTranslations">
                     <cpt:named>Download Translations</cpt:named>
                 </mb3:serviceAction>
@@ -68,18 +76,20 @@
                     <cpt:named>Switch To Writing Translations</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
-            <mb3:section>
-                <mb3:serviceAction objectType="isis.ext.h2Console.H2ManagerMenu" id="openH2Console">
-                    <cpt:named>H2 Console</cpt:named>
-                </mb3:serviceAction>
-            </mb3:section>
         </mb3:menu>
     </mb3:secondary>
     <mb3:tertiary>
         <mb3:menu>
             <mb3:named/>
             <mb3:section>
+                <mb3:named>Configuration</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.ConfigurationMenu" id="configuration"/>
+            </mb3:section>
+            <mb3:section>
+                <mb3:named>Impersonate User</mb3:named>
+                <mb3:serviceAction objectType="isis.applib.ImpersonateMenu" id="impersonate"/>
+                <mb3:serviceAction objectType="isis.applib.ImpersonateMenu" id="impersonateWithRoles"/>
+                <mb3:serviceAction objectType="isis.applib.ImpersonateMenu" id="stopImpersonating"/>
             </mb3:section>
             <mb3:section>
                 <mb3:serviceAction objectType="isis.security.LogoutMenu" id="logout">
