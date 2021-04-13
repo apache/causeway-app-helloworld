@@ -8,7 +8,8 @@ import org.springframework.context.annotation.PropertySources;
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
 import org.apache.isis.persistence.jdo.datanucleus.IsisModuleJdoDatanucleus;
-import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
+import org.apache.isis.security.bypass.authorization.AuthorizorBypass;
+import org.apache.isis.security.spring.IsisModuleSecuritySpring;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
 import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
 import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
@@ -18,7 +19,11 @@ import domainapp.modules.hello.HelloWorldModule;
 @Configuration
 @Import({
         IsisModuleCoreRuntimeServices.class,
-        IsisModuleSecurityShiro.class,
+
+        IsisModuleSecuritySpring.class,
+        SecurityConfig.class,   // defines users
+        AuthorizorBypass.class, // security-spring doesn't provide an Authorizor impl, so we just use the no-op one from bypass.
+
         IsisModuleJdoDatanucleus.class,
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
         IsisModuleViewerWicketViewer.class,
@@ -30,4 +35,5 @@ import domainapp.modules.hello.HelloWorldModule;
     @PropertySource(IsisPresets.NoTranslations),
 })
 public class AppManifest {
+
 }

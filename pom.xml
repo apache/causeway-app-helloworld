@@ -7,7 +7,10 @@
     <parent>
         <groupId>org.apache.isis.app</groupId>
         <artifactId>isis-app-starter-parent</artifactId>
+<!--
         <version>2.0.0-M5.20210413-1443-108a3a48</version>
+-->
+        <version>2.0.0-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
@@ -61,6 +64,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.isis.security</groupId>
+            <artifactId>isis-security-spring</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
             <artifactId>isis-mavendeps-jdo</artifactId>
             <type>pom</type>
@@ -80,6 +88,18 @@
         <dependency>
             <groupId>org.apache.isis.testing</groupId>
             <artifactId>isis-testing-h2console-ui</artifactId>
+        </dependency>
+
+        <!-- TODO: remove this once move to newer nightly; no longer optional=true -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>
