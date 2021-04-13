@@ -54,9 +54,13 @@
                 <mb3:serviceAction objectType="isis.applib.ConfigurationMenu" id="configuration"/>
             </mb3:section>
             <mb3:section>
-                <mb3:serviceAction objectType="isis.security.LogoutMenu" id="logout">
-                    <cpt:named>Logout</cpt:named>
-                </mb3:serviceAction>
+                <mb3:named>Impersonate User</mb3:named>
+                <mb3:serviceAction objectType="isis.applib.ImpersonateMenu" id="impersonate"/>
+                <mb3:serviceAction objectType="isis.applib.ImpersonateMenu" id="impersonateWithRoles"/>
+                <mb3:serviceAction objectType="isis.applib.ImpersonateMenu" id="stopImpersonating"/>
+            </mb3:section>
+            <mb3:section>
+                <mb3:serviceAction objectType="isis.security.LogoutMenu" id="logout"/>
             </mb3:section>
         </mb3:menu>
     </mb3:tertiary>
