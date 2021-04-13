@@ -11,7 +11,7 @@ import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
-import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.message.MessageService;
@@ -48,7 +48,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
     @Name
-    @MemberOrder(name = "identity", sequence = "1")
+    @PropertyLayout(fieldSetId = "identity", sequence = "1")
     private String name;
     public String getName() {
         return name;
@@ -58,7 +58,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
     @Notes
-    @MemberOrder(name = "details", sequence = "1")
+    @PropertyLayout(fieldSetId = "details", sequence = "1")
     private String notes;
     public String getNotes() {
         return notes;
