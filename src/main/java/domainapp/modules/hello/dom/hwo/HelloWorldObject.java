@@ -14,6 +14,7 @@ import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.annotation.SemanticsOf;
+import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
@@ -47,9 +48,9 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
         return "Object: " + getName();
     }
 
+    private String name;
     @Name
     @PropertyLayout(fieldSetId = "identity", sequence = "1")
-    private String name;
     public String getName() {
         return name;
     }
@@ -57,9 +58,9 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
         this.name = name;
     }
 
-    @Notes
-    @PropertyLayout(fieldSetId = "details", sequence = "1")
     private String notes;
+    @Notes
+    @PropertyLayout(fieldSetId = "details", sequence = "1", multiLine = 10, hidden = Where.ALL_TABLES)
     public String getNotes() {
         return notes;
     }
@@ -67,11 +68,13 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
         this.notes = notes;
     }
 
+
     @Action(
             semantics = SemanticsOf.IDEMPOTENT,
             executionPublishing = Publishing.ENABLED,
             associateWith = "name"
     )
+    @ActionLayout(describedAs = "Updates the object's name")
     public HelloWorldObject updateName(
             @Name final String name) {
         setName(name);
@@ -83,7 +86,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE, associateWith = "name")
-    @ActionLayout(position = ActionLayout.Position.PANEL)
+    @ActionLayout(position = ActionLayout.Position.PANEL, describedAs = "Deletes this object from the persistent datastore")
     public void delete() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));
