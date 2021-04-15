@@ -18,7 +18,7 @@ import org.apache.isis.extensions.secman.api.SecurityRealmService;
 import org.apache.isis.extensions.secman.api.permission.PermissionsEvaluationService;
 import org.apache.isis.extensions.secman.api.permission.PermissionsEvaluationServiceAllowBeatsVeto;
 import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanEncryptionJbcrypt;
-import org.apache.isis.extensions.secman.jdo.IsisModuleExtSecmanPersistenceJdo;
+import org.apache.isis.extensions.secman.jpa.IsisModuleExtSecmanPersistenceJpa;
 import org.apache.isis.extensions.secman.model.IsisModuleExtSecmanModel;
 import org.apache.isis.extensions.secman.shiro.IsisModuleExtSecmanRealmShiro;
 import org.apache.isis.persistence.jpa.eclipselink.IsisModuleJpaEclipselink;
@@ -42,7 +42,7 @@ import domainapp.security.scripts.SecmanConstants;
 
         IsisModuleExtSecmanApi.class,
         IsisModuleExtSecmanModel.class,
-        IsisModuleExtSecmanPersistenceJdo.class,
+        IsisModuleExtSecmanPersistenceJpa.class,
         IsisModuleExtSecmanRealmShiro.class,
         IsisModuleExtSecmanEncryptionJbcrypt.class,
 

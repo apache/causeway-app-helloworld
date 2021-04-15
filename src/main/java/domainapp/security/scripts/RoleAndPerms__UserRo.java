@@ -5,7 +5,7 @@ import org.apache.isis.applib.services.appfeat.ApplicationFeatureSort;
 import org.apache.isis.commons.collections.Can;
 import org.apache.isis.extensions.secman.api.permission.ApplicationPermissionMode;
 import org.apache.isis.extensions.secman.api.permission.ApplicationPermissionRule;
-import org.apache.isis.extensions.secman.jdo.seed.scripts.AbstractRoleAndPermissionsFixtureScript;
+import org.apache.isis.extensions.secman.jpa.seed.scripts.AbstractRoleAndPermissionsFixtureScript;
 
 public class RoleAndPerms__UserRo extends AbstractRoleAndPermissionsFixtureScript {
 

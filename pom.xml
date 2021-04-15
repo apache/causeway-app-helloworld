@@ -77,7 +77,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-secman-persistence-jdo</artifactId>
+            <artifactId>isis-extensions-secman-persistence-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.isis.extensions</groupId>

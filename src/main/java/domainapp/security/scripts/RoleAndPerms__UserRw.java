@@ -9,9 +9,9 @@ import org.apache.isis.applib.value.Password;
 import org.apache.isis.commons.collections.Can;
 import org.apache.isis.extensions.secman.api.permission.ApplicationPermissionMode;
 import org.apache.isis.extensions.secman.api.permission.ApplicationPermissionRule;
-import org.apache.isis.extensions.secman.jdo.dom.role.ApplicationRole;
-import org.apache.isis.extensions.secman.jdo.dom.role.ApplicationRoleRepository;
-import org.apache.isis.extensions.secman.jdo.seed.scripts.AbstractRoleAndPermissionsFixtureScript;
+import org.apache.isis.extensions.secman.jpa.dom.role.ApplicationRole;
+import org.apache.isis.extensions.secman.jpa.dom.role.ApplicationRoleRepository;
+import org.apache.isis.extensions.secman.jpa.seed.scripts.AbstractRoleAndPermissionsFixtureScript;
 import org.apache.isis.extensions.secman.model.dom.user.ApplicationUserMenu;
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
 
