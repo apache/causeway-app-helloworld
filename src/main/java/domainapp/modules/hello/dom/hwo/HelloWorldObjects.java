@@ -2,8 +2,6 @@ package domainapp.modules.hello.dom.hwo;
 
 import java.util.List;
 
-import javax.jdo.JDOQLTypedQuery;
-
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainService;
@@ -13,7 +11,6 @@ import org.apache.isis.applib.annotation.RestrictTo;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
 import domainapp.modules.hello.types.Name;
 
