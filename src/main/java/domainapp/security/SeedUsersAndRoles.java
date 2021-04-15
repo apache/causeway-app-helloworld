@@ -12,6 +12,12 @@ import org.apache.isis.core.metamodel.events.MetamodelEvent;
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScripts;
 
+import domainapp.security.isisroles.RoleAndPerms__ApplibConfiguration__Veto;
+import domainapp.security.isisroles.RoleAndPerms__Applib__Allow;
+import domainapp.security.isisroles.RoleAndPerms__ExtFixtures__Allow;
+import domainapp.security.isisroles.RoleAndPerms__ExtH2Console__Allow;
+import domainapp.security.isisroles.RoleAndPerms__MetaModel_Allow;
+import domainapp.security.isisroles.RoleAndPerms__PersistenceJdo_Allow;
 import domainapp.security.scripts.RoleAndPerms__NoDelete;
 import domainapp.security.scripts.RoleAndPerms__UserRo;
 import domainapp.security.scripts.RoleAndPerms__UserRw;
@@ -47,7 +53,13 @@ public class SeedUsersAndRoles {
             @Override
             protected void execute(ExecutionContext ec) {
                 ec.executeChildren(this,
-                        new RoleAndPerms__UserRw()
+                        new RoleAndPerms__Applib__Allow()
+                        , new RoleAndPerms__ApplibConfiguration__Veto()
+                        , new RoleAndPerms__ExtFixtures__Allow()
+                        , new RoleAndPerms__ExtH2Console__Allow()
+                        , new RoleAndPerms__MetaModel_Allow()
+                        , new RoleAndPerms__PersistenceJdo_Allow()
+                        , new RoleAndPerms__UserRw()
                         , new RoleAndPerms__UserRo()
                         , new RoleAndPerms__NoDelete()
                         , new UserToRole__bob_UserRw()

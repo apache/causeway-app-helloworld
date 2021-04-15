@@ -30,7 +30,7 @@ import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 
 import domainapp.modules.hello.HelloWorldModule;
 import domainapp.security.SeedUsersAndRoles;
-import domainapp.security.scripts.SecmanConstants;
+import domainapp.security.isisroles.SecmanRoleNames;
 
 @Configuration
 @Import({
@@ -61,8 +61,8 @@ public class AppManifest {
     public SecmanConfiguration secmanConfiguration() {
         return SecmanConfiguration.builder()
                 .adminUserName("sven").adminPassword("pass")
-                .adminRoleName(SecmanConstants.ADMIN_ROLE_NAME)
-                .regularUserRoleName(SecmanConstants.USER_ROLE_NAME)
+                .adminRoleName(SecmanRoleNames.ADMIN)
+                .regularUserRoleName(SecmanRoleNames.USER)
                 .build();
     }
 
