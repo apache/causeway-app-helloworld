@@ -21,7 +21,6 @@ public class UserToRole__bob_UserRw extends AbstractUserAndRolesFixtureScript {
                         , RoleAndPerms__Applib__Allow.ROLE_NAME
                         , RoleAndPerms__ExtFixtures__Allow.ROLE_NAME
                         , RoleAndPerms__ExtH2Console__Allow.ROLE_NAME
-                        , RoleAndPerms__PersistenceJdo_Allow.ROLE_NAME
                         , RoleAndPerms__MetaModel_Allow.ROLE_NAME
                 ));
     }
