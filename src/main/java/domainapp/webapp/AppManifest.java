@@ -30,7 +30,9 @@ import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 
 import domainapp.modules.hello.HelloWorldModule;
 import domainapp.security.SeedUsersAndRoles;
+import domainapp.security.fixturescripts.FixtureScriptSpecProvider;
 import domainapp.security.isisroles.SecmanRoleNames;
+import domainapp.security.multitenancy.ApplicationTenancyEvaluatorUsingAtPath;
 
 @Configuration
 @Import({
@@ -48,6 +50,9 @@ import domainapp.security.isisroles.SecmanRoleNames;
 
         IsisModuleTestingFixturesApplib.class,
         SeedUsersAndRoles.class,
+
+        FixtureScriptSpecProvider.class,
+        ApplicationTenancyEvaluatorUsingAtPath.class,
 
         IsisModuleTestingH2ConsoleUi.class,
         HelloWorldModule.class

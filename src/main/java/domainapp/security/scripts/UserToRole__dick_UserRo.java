@@ -14,7 +14,9 @@ import domainapp.security.isisroles.SecmanRoleNames;
 public class UserToRole__dick_UserRo extends AbstractUserAndRolesFixtureScript {
 
     public UserToRole__dick_UserRo() {
-        super("dick", "pass", AccountType.LOCAL,
+        super("dick", "pass", "dick@france.com",
+                "/FRA",
+                AccountType.LOCAL,
                 Can.of(
                         RoleAndPerms__UserRo.ROLE_NAME
                         , SecmanRoleNames.USER

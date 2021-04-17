@@ -21,6 +21,7 @@ import domainapp.security.isisroles.RoleAndPerms__PersistenceJdo_Allow;
 import domainapp.security.scripts.RoleAndPerms__NoDelete;
 import domainapp.security.scripts.RoleAndPerms__UserRo;
 import domainapp.security.scripts.RoleAndPerms__UserRw;
+import domainapp.security.scripts.Tenancies;
 import domainapp.security.scripts.UserToRole__bob_UserRw;
 import domainapp.security.scripts.UserToRole__dick_UserRo;
 import domainapp.security.scripts.UserToRole__joe_UserRw_but_NoDelete;
@@ -53,7 +54,8 @@ public class SeedUsersAndRoles {
             @Override
             protected void execute(ExecutionContext ec) {
                 ec.executeChildren(this,
-                        new RoleAndPerms__Applib__Allow()
+                        new Tenancies()
+                        , new RoleAndPerms__Applib__Allow()
                         , new RoleAndPerms__ApplibConfiguration__Veto()
                         , new RoleAndPerms__ExtFixtures__Allow()
                         , new RoleAndPerms__ExtH2Console__Allow()

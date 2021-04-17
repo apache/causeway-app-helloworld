@@ -15,7 +15,9 @@ import domainapp.security.isisroles.SecmanRoleNames;
 public class UserToRole__joe_UserRw_but_NoDelete extends AbstractUserAndRolesFixtureScript {
 
     public UserToRole__joe_UserRw_but_NoDelete() {
-        super("joe", "pass", AccountType.LOCAL,
+        super("joe", "pass", "joe@italy.com",
+                "/ITA",
+                AccountType.LOCAL,
                 Can.of(
                         RoleAndPerms__UserRw.ROLE_NAME
                         , RoleAndPerms__NoDelete.ROLE_NAME  // <<< veto application behaviour

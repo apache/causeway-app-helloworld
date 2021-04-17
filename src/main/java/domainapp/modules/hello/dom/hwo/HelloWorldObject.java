@@ -19,7 +19,9 @@ import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
+import org.apache.isis.extensions.secman.api.tenancy.HasAtPath;
 
+import domainapp.modules.hello.types.AtPath;
 import domainapp.modules.hello.types.Name;
 import domainapp.modules.hello.types.Notes;
 
@@ -37,12 +39,13 @@ import domainapp.modules.hello.types.Notes;
 @javax.jdo.annotations.Unique(name="HelloWorldObject_name_UNQ", members = {"name"})
 @DomainObject(entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()  // causes UI events to be triggered
-public class HelloWorldObject implements Comparable<HelloWorldObject> {
+public class HelloWorldObject implements Comparable<HelloWorldObject>, HasAtPath {
 
     public HelloWorldObject(){}
 
-    public HelloWorldObject(final String name) {
+    public HelloWorldObject(final String name, final String atPath) {
         this.name = name;
+        this.atPath = atPath;
     }
 
     public String title() {
@@ -70,6 +73,15 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
         this.notes = notes;
     }
 
+    @AtPath
+    @MemberOrder(name = "metadata", sequence = "3")
+    private String atPath;
+    public String getAtPath() {
+        return atPath;
+    }
+    public void setAtPath(String atPath) {
+        this.atPath = atPath;
+    }
 
     @Action(
             semantics = SemanticsOf.IDEMPOTENT,
