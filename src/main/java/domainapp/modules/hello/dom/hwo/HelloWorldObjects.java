@@ -1,8 +1,9 @@
 package domainapp.modules.hello.dom.hwo;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-import javax.jdo.JDOQLTypedQuery;
+import javax.inject.Inject;
 
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
@@ -13,8 +14,11 @@ import org.apache.isis.applib.annotation.RestrictTo;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
+import org.apache.isis.extensions.secman.api.tenancy.ApplicationTenancy;
+import org.apache.isis.extensions.secman.api.tenancy.ApplicationTenancyRepository;
+import org.apache.isis.extensions.secman.model.dom.user.MeService;
 
+import domainapp.modules.hello.types.AtPath;
 import domainapp.modules.hello.types.Name;
 
 @DomainService(
@@ -33,11 +37,20 @@ public class HelloWorldObjects {
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
     public HelloWorldObject create(
-            @Name final String name) {
-        return repositoryService.persist(new HelloWorldObject(name));
+            @Name final String name,
+            @AtPath final String atPath) {
+        return repositoryService.persist(new HelloWorldObject(name, atPath));
     }
     public String default0Create() {
         return "Hello World!";
+    }
+    public String default1Create() {
+        return meService.me().getAtPath();
+    }
+    public List<String> choices1Create() {
+        return applicationTenancyRepository.allTenancies()
+                .stream().map(ApplicationTenancy::getPath)
+                .collect(Collectors.toList());
     }
 
 
@@ -55,6 +68,11 @@ public class HelloWorldObjects {
     public List<HelloWorldObject> listAll() {
         return repositoryService.allInstances(HelloWorldObject.class);
     }
+
+    @Inject
+    MeService meService;
+    @Inject
+    ApplicationTenancyRepository<? extends ApplicationTenancy> applicationTenancyRepository;
 
 
 }
