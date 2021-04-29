@@ -7,7 +7,10 @@
     <parent>
         <groupId>org.apache.isis.app</groupId>
         <artifactId>isis-app-starter-parent</artifactId>
+<!--
         <version>2.0.0-M5.20210413-1443-108a3a48</version>
+-->
+        <version>2.0.0-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
@@ -60,7 +63,7 @@
                 <artifactId>isis-extensions-secman</artifactId>
                 <scope>import</scope>
                 <type>pom</type>
-                <version>2.0.0-M5</version>
+                <version>2.0.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

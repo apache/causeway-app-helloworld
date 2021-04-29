@@ -72,7 +72,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject>, HasAtPath
     }
 
     @AtPath
-    @MemberOrder(name = "metadata", sequence = "3")
+    @PropertyLayout(fieldSetId = "metadata", sequence = "3")
     private String atPath;
     public String getAtPath() {
         return atPath;
