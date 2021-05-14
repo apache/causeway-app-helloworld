@@ -4,7 +4,6 @@ import org.apache.isis.commons.collections.Can;
 import org.apache.isis.extensions.secman.api.user.dom.AccountType;
 import org.apache.isis.extensions.secman.api.user.fixtures.AbstractUserAndRolesFixtureScript;
 import org.apache.isis.extensions.secman.model.seed.scripts.other.IsisConfigurationRoleAndPermissions;
-import org.apache.isis.extensions.secman.model.seed.scripts.other.IsisExtFixturesRoleAndPermissions;
 import org.apache.isis.extensions.secman.model.seed.scripts.other.IsisExtH2ConsoleRoleAndPermissions;
 import org.apache.isis.extensions.secman.model.seed.scripts.other.IsisPersistenceJdoMetaModelRoleAndPermissions;
 import org.apache.isis.extensions.secman.model.seed.scripts.other.IsisSudoImpersonateRoleAndPermissions;
@@ -21,10 +20,9 @@ public class UserToRole__bob_UserRw extends AbstractUserAndRolesFixtureScript {
                         RoleAndPerms__UserRw.ROLE_NAME
                         , SecmanRoleNames.USER
                         , IsisConfigurationRoleAndPermissions.ROLE_NAME
-                        , IsisExtFixturesRoleAndPermissions.ROLE_NAME
+                        , IsisSudoImpersonateRoleAndPermissions.ROLE_NAME
                         , IsisExtH2ConsoleRoleAndPermissions.ROLE_NAME
                         , IsisPersistenceJdoMetaModelRoleAndPermissions.ROLE_NAME
-                        , IsisSudoImpersonateRoleAndPermissions.ROLE_NAME
                 ));
     }
 
