@@ -71,10 +71,12 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
     @Action(
             semantics = SemanticsOf.IDEMPOTENT,
-            executionPublishing = Publishing.ENABLED,
-            associateWith = "name"
+            executionPublishing = Publishing.ENABLED
     )
-    @ActionLayout(describedAs = "Updates the object's name")
+    @ActionLayout(
+            associateWith = "name",
+            describedAs = "Updates the object's name"
+    )
     public HelloWorldObject updateName(
             @Name final String name) {
         setName(name);
