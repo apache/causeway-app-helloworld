@@ -12,19 +12,14 @@ import org.apache.isis.core.metamodel.events.MetamodelEvent;
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScripts;
 
-import domainapp.security.isisroles.RoleAndPerms__ApplibConfiguration__Veto;
-import domainapp.security.isisroles.RoleAndPerms__Applib__Allow;
-import domainapp.security.isisroles.RoleAndPerms__ExtFixtures__Allow;
-import domainapp.security.isisroles.RoleAndPerms__ExtH2Console__Allow;
-import domainapp.security.isisroles.RoleAndPerms__MetaModel_Allow;
-import domainapp.security.isisroles.RoleAndPerms__PersistenceJdo_Allow;
 import domainapp.security.scripts.RoleAndPerms__NoDelete;
+import domainapp.security.scripts.RoleAndPerms__NoIsis2619Prop;
 import domainapp.security.scripts.RoleAndPerms__UserRo;
 import domainapp.security.scripts.RoleAndPerms__UserRw;
 import domainapp.security.scripts.Tenancies;
 import domainapp.security.scripts.UserToRole__bob_UserRw;
 import domainapp.security.scripts.UserToRole__dick_UserRo;
-import domainapp.security.scripts.UserToRole__joe_UserRw_but_NoDelete;
+import domainapp.security.scripts.UserToRole__joe_UserRw_but_NoDelete_or_isis2619Prop;
 
 @Service
 @Order(OrderPrecedence.MIDPOINT + 10)
@@ -55,18 +50,13 @@ public class SeedUsersAndRoles {
             protected void execute(ExecutionContext ec) {
                 ec.executeChildren(this,
                         new Tenancies()
-                        , new RoleAndPerms__Applib__Allow()
-                        , new RoleAndPerms__ApplibConfiguration__Veto()
-                        , new RoleAndPerms__ExtFixtures__Allow()
-                        , new RoleAndPerms__ExtH2Console__Allow()
-                        , new RoleAndPerms__MetaModel_Allow()
-                        , new RoleAndPerms__PersistenceJdo_Allow()
                         , new RoleAndPerms__UserRw()
                         , new RoleAndPerms__UserRo()
                         , new RoleAndPerms__NoDelete()
+                        , new RoleAndPerms__NoIsis2619Prop()
                         , new UserToRole__bob_UserRw()
                         , new UserToRole__dick_UserRo()
-                        , new UserToRole__joe_UserRw_but_NoDelete()
+                        , new UserToRole__joe_UserRw_but_NoDelete_or_isis2619Prop()
                 );
             }
         });

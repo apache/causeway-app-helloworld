@@ -6,20 +6,20 @@ import org.apache.isis.extensions.secman.api.permission.dom.ApplicationPermissio
 import org.apache.isis.extensions.secman.api.permission.dom.ApplicationPermissionRule;
 import org.apache.isis.extensions.secman.api.role.fixtures.AbstractRoleAndPermissionsFixtureScript;
 
-public class RoleAndPerms__UserRw extends AbstractRoleAndPermissionsFixtureScript {
+public class RoleAndPerms__NoIsis2619Prop extends AbstractRoleAndPermissionsFixtureScript {
 
-    public static final String ROLE_NAME = "user-rw";
+    public static final String ROLE_NAME = "no-isis2619prop";
 
-    public RoleAndPerms__UserRw() {
-        super(ROLE_NAME, "Read-write access to entire application");
+    public RoleAndPerms__NoIsis2619Prop() {
+        super(ROLE_NAME, "Veto access to HelloWorld#isis2619Prop");
     }
 
     @Override
     protected void execute(ExecutionContext ec) {
         newPermissions(
-                ApplicationPermissionRule.ALLOW,
-                ApplicationPermissionMode.CHANGING,
-                Can.of(ApplicationFeatureId.newNamespace("hello"))
+                ApplicationPermissionRule.VETO,
+                ApplicationPermissionMode.VIEWING,
+                Can.of(ApplicationFeatureId.newMember("hello.HelloWorldObject", "isis2619Prop"))
         );
     }
 }
