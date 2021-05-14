@@ -68,4 +68,3 @@ server:
 spring:
   banner:
     location: banner.txt
-
