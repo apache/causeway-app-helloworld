@@ -14,9 +14,9 @@ import org.apache.isis.applib.annotation.RestrictTo;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.extensions.secman.api.tenancy.ApplicationTenancy;
-import org.apache.isis.extensions.secman.api.tenancy.ApplicationTenancyRepository;
-import org.apache.isis.extensions.secman.model.dom.user.MeService;
+import org.apache.isis.extensions.secman.api.tenancy.dom.ApplicationTenancy;
+import org.apache.isis.extensions.secman.api.tenancy.dom.ApplicationTenancyRepository;
+import org.apache.isis.extensions.secman.api.user.menu.MeService;
 
 import domainapp.modules.hello.types.AtPath;
 import domainapp.modules.hello.types.Name;
@@ -69,10 +69,8 @@ public class HelloWorldObjects {
         return repositoryService.allInstances(HelloWorldObject.class);
     }
 
-    @Inject
-    MeService meService;
-    @Inject
-    ApplicationTenancyRepository<? extends ApplicationTenancy> applicationTenancyRepository;
+    @Inject MeService meService;
+    @Inject ApplicationTenancyRepository applicationTenancyRepository;
 
 
 }
