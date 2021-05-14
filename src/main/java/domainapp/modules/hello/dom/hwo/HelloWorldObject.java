@@ -48,7 +48,9 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
         return "Object: " + getName();
     }
 
+
     private String name;
+
     @Name
     @PropertyLayout(fieldSetId = "identity", sequence = "1")
     public String getName() {
@@ -58,7 +60,9 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
         this.name = name;
     }
 
+
     private String notes;
+
     @Notes
     @PropertyLayout(fieldSetId = "details", sequence = "1", multiLine = 10, hidden = Where.ALL_TABLES)
     public String getNotes() {
@@ -87,8 +91,14 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
-    @Action(semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE, associateWith = "name")
-    @ActionLayout(position = ActionLayout.Position.PANEL, describedAs = "Deletes this object from the persistent datastore")
+    @Action(
+            semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE
+    )
+    @ActionLayout(
+            associateWith = "name",
+            describedAs = "Deletes this object from the persistent datastore",
+            position = ActionLayout.Position.PANEL
+    )
     public void delete() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));
