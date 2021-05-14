@@ -18,7 +18,7 @@ import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
-import org.apache.isis.extensions.secman.api.tenancy.HasAtPath;
+import org.apache.isis.extensions.secman.api.tenancy.dom.HasAtPath;
 
 import domainapp.modules.hello.types.AtPath;
 import domainapp.modules.hello.types.Name;
@@ -82,11 +82,13 @@ public class HelloWorldObject implements Comparable<HelloWorldObject>, HasAtPath
     }
 
     @Action(
-            semantics = SemanticsOf.IDEMPOTENT,
             executionPublishing = Publishing.ENABLED,
-            associateWith = "name"
+            semantics = SemanticsOf.IDEMPOTENT
     )
-    @ActionLayout(describedAs = "Updates the object's name")
+    @ActionLayout(
+            associateWith = "name",
+            describedAs = "Updates the object's name"
+    )
     public HelloWorldObject updateName(
             @Name final String name) {
         setName(name);
