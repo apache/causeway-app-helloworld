@@ -14,14 +14,14 @@
                         <bs3:tab name="Identity">
                             <bs3:row>
                                 <bs3:col span="12">
-                                    <c:fieldSet id="identity"/>
+                                    <c:fieldSet name="Identity" id="identity"/>
                                 </bs3:col>
                             </bs3:row>
                         </bs3:tab>
                         <bs3:tab name="Other">
                             <bs3:row>
                                 <bs3:col span="12">
-                                    <c:fieldSet id="other" unreferencedProperties="true"/>
+                                    <c:fieldSet name="Other" id="other" unreferencedProperties="true"/>
                                 </bs3:col>
                             </bs3:row>
                         </bs3:tab>

@@ -19,6 +19,7 @@
             <mb3:section>
                 <mb3:named>Fixtures</mb3:named>
                 <mb3:serviceAction objectType="isis.ext.fixtures.FixtureScripts" id="runFixtureScript"/>
+                <mb3:serviceAction objectType="isis.ext.fixtures.FixtureScripts" id="recreateObjectsAndReturnFirst"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Impersonate</mb3:named>
