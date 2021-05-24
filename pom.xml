@@ -7,7 +7,10 @@
     <parent>
         <groupId>org.apache.isis.app</groupId>
         <artifactId>isis-app-starter-parent</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+<!--
         <version>2.0.0-M5.20210522-0434-fb17f373</version>
+-->
         <relativePath/>
     </parent>
 
@@ -52,7 +55,41 @@
         </plugins>
     </build>
 
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.isis.extensions</groupId>
+                <artifactId>isis-extensions-secman</artifactId>
+                <scope>import</scope>
+                <type>pom</type>
+                <version>2.0.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
+
+        <dependency>
+            <groupId>org.apache.isis.extensions</groupId>
+            <artifactId>isis-extensions-secman-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.isis.extensions</groupId>
+            <artifactId>isis-extensions-secman-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.isis.extensions</groupId>
+            <artifactId>isis-extensions-secman-persistence-jdo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.isis.extensions</groupId>
+            <artifactId>isis-extensions-secman-encryption-jbcrypt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.isis.extensions</groupId>
+            <artifactId>isis-extensions-secman-shiro-realm</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>

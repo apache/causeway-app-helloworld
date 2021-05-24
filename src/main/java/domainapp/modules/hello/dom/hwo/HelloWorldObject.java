@@ -16,7 +16,9 @@ import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.JpaEntityInjectionPointResolver;
+import org.apache.isis.extensions.secman.api.tenancy.dom.HasAtPath;
 
+import domainapp.modules.hello.types.AtPath;
 import domainapp.modules.hello.types.Name;
 import domainapp.modules.hello.types.Notes;
 
@@ -30,7 +32,7 @@ import domainapp.modules.hello.types.Notes;
 @javax.persistence.EntityListeners(JpaEntityInjectionPointResolver.class) // injection support
 @DomainObject(objectType = "hello.HelloWorldObject", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()  // causes UI events to be triggered
-public class HelloWorldObject implements Comparable<HelloWorldObject> {
+public class HelloWorldObject implements Comparable<HelloWorldObject>, HasAtPath {
 
     protected HelloWorldObject(){}
 
@@ -44,8 +46,9 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     private int version;
 
 
-    public HelloWorldObject(final String name) {
+    public HelloWorldObject(final String name, final String atPath) {
         this.name = name;
+        this.atPath = atPath;
     }
 
     public String title() {
@@ -79,9 +82,22 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
+    @javax.persistence.Column(length = AtPath.MAX_LEN, nullable = true)
+    private String atPath;
+
+    @AtPath
+    @PropertyLayout(fieldSetId = "metadata", sequence = "3")
+    public String getAtPath() {
+        return atPath;
+    }
+    public void setAtPath(String atPath) {
+        this.atPath = atPath;
+    }
+
+
     @Action(
-            semantics = SemanticsOf.IDEMPOTENT,
-            executionPublishing = Publishing.ENABLED
+            executionPublishing = Publishing.ENABLED,
+            semantics = SemanticsOf.IDEMPOTENT
     )
     @ActionLayout(
             associateWith = "name",
