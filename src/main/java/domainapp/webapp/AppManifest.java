@@ -10,7 +10,6 @@ import org.springframework.context.annotation.PropertySources;
 
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.extensions.secman.api.IsisModuleExtSecmanApi;
 import org.apache.isis.extensions.secman.api.SecmanConfiguration;
 import org.apache.isis.extensions.secman.api.SecurityRealm;
 import org.apache.isis.extensions.secman.api.SecurityRealmCharacteristic;
@@ -19,7 +18,6 @@ import org.apache.isis.extensions.secman.api.permission.spi.PermissionsEvaluatio
 import org.apache.isis.extensions.secman.api.permission.spi.PermissionsEvaluationServiceAllowBeatsVeto;
 import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanEncryptionJbcrypt;
 import org.apache.isis.extensions.secman.jdo.IsisModuleExtSecmanPersistenceJdo;
-import org.apache.isis.extensions.secman.model.IsisModuleExtSecmanModel;
 import org.apache.isis.extensions.secman.shiro.IsisModuleExtSecmanRealmShiro;
 import org.apache.isis.persistence.jdo.datanucleus.IsisModuleJdoDatanucleus;
 import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
@@ -31,7 +29,6 @@ import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 import domainapp.modules.hello.HelloWorldModule;
 import domainapp.security.SeedUsersAndRoles;
 import domainapp.security.fixturescripts.FixtureScriptSpecProvider;
-import domainapp.security.isisroles.SecmanRoleNames;
 import domainapp.security.multitenancy.ApplicationTenancyEvaluatorUsingAtPath;
 
 @Configuration
@@ -42,8 +39,6 @@ import domainapp.security.multitenancy.ApplicationTenancyEvaluatorUsingAtPath;
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
         IsisModuleViewerWicketViewer.class,
 
-        IsisModuleExtSecmanApi.class,
-        IsisModuleExtSecmanModel.class,
         IsisModuleExtSecmanPersistenceJdo.class,
         IsisModuleExtSecmanRealmShiro.class,
         IsisModuleExtSecmanEncryptionJbcrypt.class,
@@ -66,8 +61,6 @@ public class AppManifest {
     public SecmanConfiguration secmanConfiguration() {
         return SecmanConfiguration.builder()
                 .adminUserName("sven").adminPassword("pass")
-                .adminRoleName(SecmanRoleNames.ADMIN)
-                .regularUserRoleName(SecmanRoleNames.USER)
                 .build();
     }
 
