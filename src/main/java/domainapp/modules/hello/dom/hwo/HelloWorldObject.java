@@ -16,7 +16,7 @@ import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.JpaEntityInjectionPointResolver;
-import org.apache.isis.extensions.secman.api.tenancy.dom.HasAtPath;
+import org.apache.isis.extensions.secman.applib.tenancy.dom.HasAtPath;
 
 import domainapp.modules.hello.types.AtPath;
 import domainapp.modules.hello.types.Name;
@@ -30,7 +30,7 @@ import domainapp.modules.hello.types.Notes;
         }
 )
 @javax.persistence.EntityListeners(JpaEntityInjectionPointResolver.class) // injection support
-@DomainObject(objectType = "hello.HelloWorldObject", entityChangePublishing = Publishing.ENABLED)
+@DomainObject(logicalTypeName = "hello.HelloWorldObject", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()  // causes UI events to be triggered
 public class HelloWorldObject implements Comparable<HelloWorldObject>, HasAtPath {
 
@@ -45,6 +45,8 @@ public class HelloWorldObject implements Comparable<HelloWorldObject>, HasAtPath
     @javax.persistence.Column(name = "OPTLOCK")
     private int version;
 
+
+    public boolean hidden() { return getAtPath().startsWith("/GBR");}
 
     public HelloWorldObject(final String name, final String atPath) {
         this.name = name;

@@ -40,12 +40,17 @@ isis:
         show-chooser: true
         show-drop-down-on-footer: true
 
+      message-popups:
+        placement:
+          vertical: bottom
+        info-delay: 2000
+
       max-title-length-in-standalone-tables: 0
       max-title-length-in-parented-tables: 0
 
   persistence:
     schema:
-      auto-create-schemas: hello
+      auto-create-schemas: hello,isisExtensionsSecman
       create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
 
 eclipselink:

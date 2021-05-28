@@ -1,7 +1,5 @@
 package domainapp.webapp;
 
-import java.util.EnumSet;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -10,16 +8,13 @@ import org.springframework.context.annotation.PropertySources;
 
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.persistence.jpa.eclipselink.IsisModuleJpaEclipselink;
-import org.apache.isis.extensions.secman.api.SecmanConfiguration;
-import org.apache.isis.extensions.secman.api.SecurityRealm;
-import org.apache.isis.extensions.secman.api.SecurityRealmCharacteristic;
-import org.apache.isis.extensions.secman.api.SecurityRealmService;
-import org.apache.isis.extensions.secman.api.permission.spi.PermissionsEvaluationService;
-import org.apache.isis.extensions.secman.api.permission.spi.PermissionsEvaluationServiceAllowBeatsVeto;
+import org.apache.isis.extensions.secman.applib.SecmanConfiguration;
+import org.apache.isis.extensions.secman.applib.permission.spi.PermissionsEvaluationService;
+import org.apache.isis.extensions.secman.applib.permission.spi.PermissionsEvaluationServiceAllowBeatsVeto;
 import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanEncryptionJbcrypt;
-import org.apache.isis.extensions.secman.jdo.IsisModuleExtSecmanPersistenceJdo;
+import org.apache.isis.extensions.secman.jpa.IsisModuleExtSecmanPersistenceJpa;
 import org.apache.isis.extensions.secman.shiro.IsisModuleExtSecmanRealmShiro;
+import org.apache.isis.persistence.jpa.eclipselink.IsisModuleJpaEclipselink;
 import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
@@ -39,11 +34,12 @@ import domainapp.security.multitenancy.ApplicationTenancyEvaluatorUsingAtPath;
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
         IsisModuleViewerWicketViewer.class,
 
-        IsisModuleExtSecmanPersistenceJdo.class,
+        IsisModuleExtSecmanPersistenceJpa.class,
         IsisModuleExtSecmanRealmShiro.class,
         IsisModuleExtSecmanEncryptionJbcrypt.class,
 
         IsisModuleTestingFixturesApplib.class,
+        IsisModuleTestingH2ConsoleUi.class,
         SeedUsersAndRoles.class,
 
         FixtureScriptSpecProvider.class,
@@ -69,14 +65,5 @@ public class AppManifest {
         return new PermissionsEvaluationServiceAllowBeatsVeto();
     }
 
-    @Bean
-    public SecurityRealmService securityRealmService() {
-        return new SecurityRealmService() {
-            @Override
-            public SecurityRealm getCurrentRealm() {
-                return () -> EnumSet.noneOf(SecurityRealmCharacteristic.class);
-            }
-        };
-    }
 
 }

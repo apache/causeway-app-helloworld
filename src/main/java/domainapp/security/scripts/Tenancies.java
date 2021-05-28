@@ -1,6 +1,6 @@
 package domainapp.security.scripts;
 
-import org.apache.isis.extensions.secman.api.tenancy.fixtures.AbstractTenancyFixtureScript;
+import org.apache.isis.extensions.secman.applib.tenancy.fixtures.AbstractTenancyFixtureScript;
 
 public class Tenancies extends AbstractTenancyFixtureScript {
 

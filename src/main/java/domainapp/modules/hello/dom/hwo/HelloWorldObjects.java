@@ -13,9 +13,9 @@ import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.RestrictTo;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.extensions.secman.api.tenancy.dom.ApplicationTenancy;
-import org.apache.isis.extensions.secman.api.tenancy.dom.ApplicationTenancyRepository;
-import org.apache.isis.extensions.secman.api.user.menu.MeService;
+import org.apache.isis.extensions.secman.applib.tenancy.dom.ApplicationTenancy;
+import org.apache.isis.extensions.secman.applib.tenancy.dom.ApplicationTenancyRepository;
+import org.apache.isis.extensions.secman.applib.user.menu.MeService;
 
 import domainapp.modules.hello.types.AtPath;
 import domainapp.modules.hello.types.Name;
@@ -41,6 +41,10 @@ public class HelloWorldObjects {
     public HelloWorldObject create(
             @Name final String name,
             @AtPath final String atPath) {
+        final ApplicationTenancy applicationTenancy = applicationTenancyRepository.findByPath(atPath);
+        if(applicationTenancy == null) {
+            applicationTenancyRepository.newTenancy(atPath, atPath, null);
+        }
         return repositoryService.persist(new HelloWorldObject(name, atPath));
     }
     public String default0Create() {

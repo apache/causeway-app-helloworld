@@ -33,9 +33,14 @@
                 <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadMenuBarsLayout"/>
             </mb3:section>
             <mb3:section>
-                <mb3:named>Meta Model</mb3:named>
+                <mb3:named>Meta Model Features</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelXml"/>
                 <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelCsv"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allNamespaces"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allTypes"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allActions"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allProperties"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allCollections"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Persistence</mb3:named>
@@ -68,14 +73,6 @@
                 <mb3:serviceAction objectType="isis.ext.secman.ApplicationRoleMenu" id="findRoles"/>
                 <mb3:serviceAction objectType="isis.ext.secman.ApplicationRoleMenu" id="newRole"/>
                 <mb3:serviceAction objectType="isis.ext.secman.ApplicationRoleMenu" id="allRoles"/>
-            </mb3:section>
-            <mb3:section>
-                <mb3:named>Features</mb3:named>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationFeatureViewModels" id="allNamespaces"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationFeatureViewModels" id="allTypes"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationFeatureViewModels" id="allActions"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationFeatureViewModels" id="allProperties"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationFeatureViewModels" id="allCollections"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Permissions</mb3:named>

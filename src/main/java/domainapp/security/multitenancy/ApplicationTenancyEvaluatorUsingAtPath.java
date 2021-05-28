@@ -2,9 +2,9 @@ package domainapp.security.multitenancy;
 
 import org.springframework.stereotype.Service;
 
-import org.apache.isis.extensions.secman.api.tenancy.spi.ApplicationTenancyEvaluator;
-import org.apache.isis.extensions.secman.api.tenancy.dom.HasAtPath;
-import org.apache.isis.extensions.secman.api.user.dom.ApplicationUser;
+import org.apache.isis.extensions.secman.applib.tenancy.spi.ApplicationTenancyEvaluator;
+import org.apache.isis.extensions.secman.applib.tenancy.dom.HasAtPath;
+import org.apache.isis.extensions.secman.applib.user.dom.ApplicationUser;
 
 @Service
 public class ApplicationTenancyEvaluatorUsingAtPath implements ApplicationTenancyEvaluator {
