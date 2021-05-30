@@ -33,7 +33,7 @@
                 <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadMenuBarsLayout"/>
             </mb3:section>
             <mb3:section>
-                <mb3:named>Meta Model Features</mb3:named>
+                <mb3:named>Meta Model and Features</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelXml"/>
                 <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelCsv"/>
                 <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allNamespaces"/>

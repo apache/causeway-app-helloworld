@@ -9,7 +9,7 @@
         <artifactId>isis-app-starter-parent</artifactId>
         <version>2.0.0-SNAPSHOT</version>
 <!--
-        <version>2.0.0-M5.20210522-0434-fb17f373</version>
+        <version>2.0.0-M5.20210529-0603-801802dc</version>
 -->
         <relativePath/>
     </parent>
@@ -55,52 +55,7 @@
         </plugins>
     </build>
 
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.apache.isis.extensions</groupId>
-                <artifactId>isis-extensions-secman</artifactId>
-                <scope>import</scope>
-                <type>pom</type>
-                <version>2.0.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.isis.testing</groupId>
-                <artifactId>isis-testing-h2console-ui</artifactId>
-                <scope>import</scope>
-                <type>pom</type>
-                <version>2.0.0-SNAPSHOT</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-
-        <dependency>
-            <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-h2console-ui</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-secman-applib</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-secman-integration</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-secman-persistence-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-secman-encryption-jbcrypt</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-secman-shiro-realm</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
