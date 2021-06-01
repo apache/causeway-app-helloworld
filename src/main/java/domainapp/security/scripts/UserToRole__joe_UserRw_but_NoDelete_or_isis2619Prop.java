@@ -1,6 +1,7 @@
 package domainapp.security.scripts;
 
 import org.apache.isis.commons.collections.Can;
+import org.apache.isis.core.config.IsisConfiguration;
 import org.apache.isis.extensions.secman.applib.SecmanConfiguration;
 import org.apache.isis.extensions.secman.applib.user.dom.AccountType;
 import org.apache.isis.extensions.secman.applib.user.fixtures.AbstractUserAndRolesFixtureScript;
@@ -17,7 +18,7 @@ public class UserToRole__joe_UserRw_but_NoDelete_or_isis2619Prop extends Abstrac
                         RoleAndPerms__UserRw.ROLE_NAME
                         , RoleAndPerms__NoDelete.ROLE_NAME  // <<< veto application behaviour
                         , RoleAndPerms__NoIsis2619Prop.ROLE_NAME  // <<< veto application behaviour
-                        , SecmanConfiguration.REGULAR_USER_ROLE_DEFAULT_NAME
+                        , IsisConfiguration.Extensions.Secman.Seed.REGULAR_USER_ROLE_NAME_DEFAULT
                         , IsisExtH2ConsoleRoleAndPermissions.ROLE_NAME
                         , IsisPersistenceJdoMetaModelRoleAndPermissions.ROLE_NAME
                 ));

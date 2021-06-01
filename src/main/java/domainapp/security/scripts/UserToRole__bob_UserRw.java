@@ -1,6 +1,7 @@
 package domainapp.security.scripts;
 
 import org.apache.isis.commons.collections.Can;
+import org.apache.isis.core.config.IsisConfiguration;
 import org.apache.isis.extensions.secman.applib.SecmanConfiguration;
 import org.apache.isis.extensions.secman.applib.user.dom.AccountType;
 import org.apache.isis.extensions.secman.applib.user.fixtures.AbstractUserAndRolesFixtureScript;
@@ -17,7 +18,7 @@ public class UserToRole__bob_UserRw extends AbstractUserAndRolesFixtureScript {
                 AccountType.LOCAL,
                 Can.of(
                         RoleAndPerms__UserRw.ROLE_NAME
-                        , SecmanConfiguration.REGULAR_USER_ROLE_DEFAULT_NAME
+                        , IsisConfiguration.Extensions.Secman.Seed.REGULAR_USER_ROLE_NAME_DEFAULT
                         , IsisConfigurationRoleAndPermissions.ROLE_NAME
                         , IsisSudoImpersonateRoleAndPermissions.ROLE_NAME
                         , IsisExtH2ConsoleRoleAndPermissions.ROLE_NAME
