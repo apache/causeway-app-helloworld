@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.apache.isis.app</groupId>
         <artifactId>isis-app-starter-parent</artifactId>
-        <version>2.0.0-M5.20210529-0603-801802dc</version>
+        <version>2.0.0-M5.20210601-0553-daa4d8e1</version>
         <relativePath/>
     </parent>
 
@@ -58,6 +58,11 @@
             <groupId>org.apache.isis.mavendeps</groupId>
             <artifactId>isis-mavendeps-webapp</artifactId>
             <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.isis.security</groupId>
+            <artifactId>isis-security-shiro</artifactId>
         </dependency>
 
         <dependency>
