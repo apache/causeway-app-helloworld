@@ -11,12 +11,13 @@ import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
+import org.apache.isis.applib.annotation.Where;
 
 @javax.jdo.annotations.Column(length = Notes.MAX_LEN, allowsNull = "true")
 @Property(editing = Editing.ENABLED, maxLength = Notes.MAX_LEN, optionality = Optionality.OPTIONAL)
-@PropertyLayout(multiLine = 5)
+@PropertyLayout(multiLine = 10, hidden = Where.ALL_TABLES)
 @Parameter(maxLength = Notes.MAX_LEN, optionality = Optionality.OPTIONAL)
-@ParameterLayout(multiLine = 5)
+@ParameterLayout(multiLine = 10)
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Notes {

@@ -14,7 +14,7 @@ import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.annotation.SemanticsOf;
-import org.apache.isis.applib.annotation.Where;
+import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
@@ -22,8 +22,15 @@ import org.apache.isis.applib.services.title.TitleService;
 import domainapp.modules.hello.types.Name;
 import domainapp.modules.hello.types.Notes;
 
-@javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE, schema = "hello" )
+@javax.jdo.annotations.PersistenceCapable(
+        schema = "hello",
+        identityType = IdentityType.DATASTORE
+)
+@javax.jdo.annotations.Unique(
+        name = "HelloWorldObject__name__UNQ", members = {"name"}
+)
 @javax.jdo.annotations.DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY, column = "id")
+@javax.jdo.annotations.Version(strategy= VersionStrategy.VERSION_NUMBER, column ="version")
 @javax.jdo.annotations.Queries(
         @javax.jdo.annotations.Query(
                 name = "findByName",
@@ -32,25 +39,21 @@ import domainapp.modules.hello.types.Notes;
                         "WHERE name.indexOf(:name) >= 0"
         )
 )
-@javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column ="version")
-@javax.jdo.annotations.Unique(name="HelloWorldObject_name_UNQ", members = {"name"})
-@DomainObject(entityChangePublishing = Publishing.ENABLED)
+@DomainObject(logicalTypeName = "hello.HelloWorldObject", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()  // causes UI events to be triggered
 public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
-    public HelloWorldObject(){}
+    private HelloWorldObject(){}
 
     public HelloWorldObject(final String name) {
         this.name = name;
     }
 
-    public String title() {
-        return "Object: " + getName();
-    }
 
 
     private String name;
 
+    @Title(prepend = "Object: ")
     @Name
     @PropertyLayout(fieldSetId = "identity", sequence = "1")
     public String getName() {
@@ -64,7 +67,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     private String notes;
 
     @Notes
-    @PropertyLayout(fieldSetId = "details", sequence = "1", multiLine = 10, hidden = Where.ALL_TABLES)
+    @PropertyLayout(fieldSetId = "details", sequence = "1")
     public String getNotes() {
         return notes;
     }
@@ -96,7 +99,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     )
     @ActionLayout(
             associateWith = "name",
-            describedAs = "Deletes this object from the persistent datastore",
+            describedAs = "Deletes this object from the database",
             position = ActionLayout.Position.PANEL
     )
     public void delete() {

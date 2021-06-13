@@ -43,10 +43,6 @@ isis:
       max-title-length-in-standalone-tables: 0
       max-title-length-in-parented-tables: 0
 
-  persistence:
-    schema:
-      auto-create-schemas: hello
-      create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
 
 # note that properties under 'datanucleus' must use camelCase rather than kebab-case
 datanucleus:
