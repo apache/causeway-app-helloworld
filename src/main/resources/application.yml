@@ -43,10 +43,6 @@ isis:
       max-title-length-in-standalone-tables: 0
       max-title-length-in-parented-tables: 0
 
-  persistence:
-    schema:
-      auto-create-schemas: hello
-      create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
 
 eclipselink:
   # if enabled, then must be run with JVM arg:
@@ -54,7 +50,7 @@ eclipselink:
   weaving: false
   # if weaving subproperties are required, then specify all eclipselink.weaving
   # properties using application.properties instead (it's not possible to
-  # specify both eclipselink.weaving property and its subsproperties using yaml syntax)
+  # specify both eclipselink.weaving property and its subproperties using yaml syntax)
 
 resteasy:
   jaxrs:
