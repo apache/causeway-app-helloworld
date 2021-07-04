@@ -8,6 +8,7 @@ import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
+import org.apache.isis.applib.annotation.PriorityPrecedence;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.RestrictTo;
 import org.apache.isis.applib.annotation.SemanticsOf;
@@ -18,7 +19,8 @@ import domainapp.modules.hello.types.Name;
 @DomainService(
         nature = NatureOfService.VIEW,
         objectType = "hello.HelloWorldObjects"
-        )
+)
+@javax.annotation.Priority(PriorityPrecedence.EARLY)
 public class HelloWorldObjects {
 
     private final RepositoryService repositoryService;
