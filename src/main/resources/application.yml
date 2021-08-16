@@ -9,9 +9,17 @@ isis:
     annotation:
       action:
         explicit: true
+      action-layout:
+        css-class:
+          patterns:
+            delete.*:btn-danger,
+            discard.*:btn-warning,
+            remove.*:btn-warning
 
   core:
     meta-model:
+      introspector:
+        lock-after-full-introspection: true
       validator:
         allow-deprecated: false
         no-params-only: true
@@ -27,14 +35,13 @@ isis:
         js: scripts/application.js
         menubars-layout-xml: menubars.layout.xml
         name: Hello World App
+        # https://stackoverflow.com/a/38983935/56880
+        version: @project.version@
 
       credit:
         - url:  http://isis.apache.org
           image: images/apache-isis/logo-48x48.png
           name: Apache Isis
-
-      themes:
-        show-chooser: true
 
       bookmarked-pages:
         show-chooser: true
@@ -43,10 +50,13 @@ isis:
       max-title-length-in-standalone-tables: 0
       max-title-length-in-parented-tables: 0
 
+      themes:
+        show-chooser: true
+
 
 eclipselink:
   # if enabled, then must be run with JVM arg:
-  # -javaagent:lib/spring-instrument-5.3.5.jar
+  # -javaagent:lib/spring-instrument-5.3.8.jar
   weaving: false
   # if weaving subproperties are required, then specify all eclipselink.weaving
   # properties using application.properties instead (it's not possible to
@@ -64,3 +74,9 @@ server:
 spring:
   banner:
     location: banner.txt
+
+management:
+  endpoint:
+    health:
+      enabled: true
+
