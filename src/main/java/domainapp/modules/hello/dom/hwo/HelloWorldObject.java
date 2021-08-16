@@ -15,7 +15,7 @@ import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
-import org.apache.isis.persistence.jpa.applib.integration.JpaEntityInjectionPointResolver;
+import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 
 import domainapp.modules.hello.types.Name;
 import domainapp.modules.hello.types.Notes;
@@ -28,7 +28,7 @@ import domainapp.modules.hello.types.Notes;
                 @javax.persistence.UniqueConstraint(name = "HelloWorldObject__name__UNQ", columnNames = {"name"})
         }
 )
-@javax.persistence.EntityListeners(JpaEntityInjectionPointResolver.class) // injection support
+@javax.persistence.EntityListeners(IsisEntityListener.class) // injection support
 @DomainObject(logicalTypeName = "hello.HelloWorldObject", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()  // causes UI events to be triggered
 public class HelloWorldObject implements Comparable<HelloWorldObject> {
