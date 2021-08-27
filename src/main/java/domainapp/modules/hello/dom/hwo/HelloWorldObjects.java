@@ -2,8 +2,6 @@ package domainapp.modules.hello.dom.hwo;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainService;
@@ -18,7 +16,7 @@ import domainapp.modules.hello.types.Name;
 
 @DomainService(
         nature = NatureOfService.VIEW,
-        objectType = "hello.HelloWorldObjects"
+        logicalTypeName = "hello.HelloWorldObjects"
 )
 @javax.annotation.Priority(PriorityPrecedence.EARLY)
 public class HelloWorldObjects {
