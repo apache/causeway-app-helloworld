@@ -20,7 +20,7 @@ import domainapp.modules.hello.types.Name;
 
 @DomainService(
         nature = NatureOfService.VIEW,
-        objectType = "hello.HelloWorldObjects"
+        logicalTypeName = "hello.HelloWorldObjects"
 )
 @javax.annotation.Priority(PriorityPrecedence.EARLY)
 public class HelloWorldObjects {
@@ -49,7 +49,7 @@ public class HelloWorldObjects {
             @Name final String name) {
         return repositoryService.allMatches(
                 Query.named(HelloWorldObject.class, "findByName")
-                      .withParameter("name", name)
+                        .withParameter("name", name)
         );
     }
 
