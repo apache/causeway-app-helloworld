@@ -6,14 +6,14 @@ on:
     branches:
       - jdo
       - jpa
-#      - jdo-SNAPSHOT
-#      - jpa-SNAPSHOT
+      - jdo-SNAPSHOT
+      - jpa-SNAPSHOT
   pull_request:
     branches:
       - jdo
       - jpa
-#      - jdo-SNAPSHOT
-#      - jpa-SNAPSHOT
+      - jdo-SNAPSHOT
+      - jpa-SNAPSHOT
 
 jobs:
   build:
