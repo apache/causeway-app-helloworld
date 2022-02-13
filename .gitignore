@@ -41,3 +41,5 @@ rebel.xml
 translations.pot
 /.factorypath
 /.apt_generated_tests/
+
+/create-db-schema.sql
