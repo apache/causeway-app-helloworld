@@ -98,7 +98,6 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
             semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE
     )
     @ActionLayout(
-            associateWith = "name",
             describedAs = "Deletes this object from the database",
             position = ActionLayout.Position.PANEL
     )
