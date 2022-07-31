@@ -14,7 +14,10 @@
                         <bs3:tab name="Identity">
                             <bs3:row>
                                 <bs3:col span="12">
-                                    <c:fieldSet name="Identity" id="identity"/>
+                                    <c:fieldSet name="Identity" id="identity">
+                                        <c:action id="clearHints" position="PANEL_DROPDOWN"/>
+                                        <c:action id="delete" position="PANEL"/>
+                                    </c:fieldSet>
                                 </bs3:col>
                             </bs3:row>
                         </bs3:tab>

@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
+import org.apache.isis.applib.IsisModuleApplibChangeAndExecutionLoggers;
+import org.apache.isis.applib.IsisModuleApplibMixins;
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
 import org.apache.isis.persistence.jpa.eclipselink.IsisModulePersistenceJpaEclipselink;
@@ -17,6 +19,9 @@ import domainapp.modules.hello.HelloWorldModule;
 
 @Configuration
 @Import({
+        IsisModuleApplibMixins.class,
+        IsisModuleApplibChangeAndExecutionLoggers.class,
+
         IsisModuleCoreRuntimeServices.class,
         IsisModuleSecurityShiro.class,
         IsisModulePersistenceJpaEclipselink.class,
