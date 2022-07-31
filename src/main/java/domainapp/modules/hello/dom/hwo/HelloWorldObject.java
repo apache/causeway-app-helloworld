@@ -3,8 +3,15 @@ package domainapp.modules.hello.dom.hwo;
 import java.util.Comparator;
 
 import javax.inject.Inject;
+import javax.inject.Named;
+import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Queries;
+import javax.jdo.annotations.Query;
+import javax.jdo.annotations.Unique;
+import javax.jdo.annotations.Version;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.annotation.Action;
@@ -15,6 +22,7 @@ import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.layout.LayoutConstants;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
@@ -22,24 +30,25 @@ import org.apache.isis.applib.services.title.TitleService;
 import domainapp.modules.hello.types.Name;
 import domainapp.modules.hello.types.Notes;
 
-@javax.jdo.annotations.PersistenceCapable(
+@PersistenceCapable(
         schema = "hello",
         identityType = IdentityType.DATASTORE
 )
-@javax.jdo.annotations.Unique(
+@Unique(
         name = "HelloWorldObject__name__UNQ", members = {"name"}
 )
-@javax.jdo.annotations.DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY, column = "id")
-@javax.jdo.annotations.Version(strategy= VersionStrategy.VERSION_NUMBER, column ="version")
-@javax.jdo.annotations.Queries(
-        @javax.jdo.annotations.Query(
+@DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY, column = "id")
+@Version(strategy= VersionStrategy.VERSION_NUMBER, column ="version")
+@Queries(
+        @Query(
                 name = "findByName",
                 value = "SELECT " +
                         "FROM domainapp.modules.hello.dom.hwo.HelloWorldObject " +
                         "WHERE name.indexOf(:name) >= 0"
         )
 )
-@DomainObject(logicalTypeName = "hello.HelloWorldObject", entityChangePublishing = Publishing.ENABLED)
+@Named("hello.HelloWorldObject")
+@DomainObject()
 @DomainObjectLayout()  // causes UI events to be triggered
 public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
@@ -55,7 +64,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
     @Title(prepend = "Object: ")
     @Name
-    @PropertyLayout(fieldSetId = "identity", sequence = "1")
+    @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.IDENTITY, sequence = "1")
     public String getName() {
         return name;
     }
@@ -67,13 +76,14 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     private String notes;
 
     @Notes
-    @PropertyLayout(fieldSetId = "details", sequence = "1")
+    @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.DETAILS, sequence = "1")
     public String getNotes() {
         return notes;
     }
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
 
 
     @Action(
@@ -94,10 +104,12 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
+
     @Action(
             semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE
     )
     @ActionLayout(
+            fieldSetId = LayoutConstants.FieldSetId.IDENTITY,
             describedAs = "Deletes this object from the database",
             position = ActionLayout.Position.PANEL
     )
@@ -106,6 +118,8 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
         messageService.informUser(String.format("'%s' deleted", title));
         repositoryService.removeAndFlush(this);
     }
+
+
 
     @Override
     public String toString() {
