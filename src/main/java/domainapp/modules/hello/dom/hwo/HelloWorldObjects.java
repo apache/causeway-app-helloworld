@@ -2,6 +2,10 @@ package domainapp.modules.hello.dom.hwo;
 
 import java.util.List;
 
+import javax.annotation.Priority;
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainService;
@@ -14,16 +18,15 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 
 import domainapp.modules.hello.types.Name;
 
-@DomainService(
-        nature = NatureOfService.VIEW,
-        logicalTypeName = "hello.HelloWorldObjects"
-)
-@javax.annotation.Priority(PriorityPrecedence.EARLY)
+@Named("hello.HelloWorldObjects")
+@DomainService(nature = NatureOfService.VIEW)
+@Priority(PriorityPrecedence.EARLY)
 public class HelloWorldObjects {
 
     private final RepositoryService repositoryService;
     private final HelloWorldRepository helloWorldRepository;
 
+    @Inject
     public HelloWorldObjects(
             final RepositoryService repositoryService,
             final HelloWorldRepository helloWorldRepository) {

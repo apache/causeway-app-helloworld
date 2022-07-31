@@ -3,6 +3,17 @@ package domainapp.modules.hello.dom.hwo;
 import java.util.Comparator;
 
 import javax.inject.Inject;
+import javax.inject.Named;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.Version;
 
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
@@ -12,6 +23,7 @@ import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.layout.LayoutConstants;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
@@ -20,28 +32,29 @@ import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 import domainapp.modules.hello.types.Name;
 import domainapp.modules.hello.types.Notes;
 
-@javax.persistence.Entity
-@javax.persistence.Table(
+@Entity
+@Table(
         schema="hello",
         name = "HelloWorldObject",
         uniqueConstraints = {
-                @javax.persistence.UniqueConstraint(name = "HelloWorldObject__name__UNQ", columnNames = {"name"})
+                @UniqueConstraint(name = "HelloWorldObject__name__UNQ", columnNames = {"name"})
         }
 )
-@javax.persistence.EntityListeners(IsisEntityListener.class) // injection support
-@DomainObject(logicalTypeName = "hello.HelloWorldObject", entityChangePublishing = Publishing.ENABLED)
+@EntityListeners(IsisEntityListener.class) // injection support
+@Named("hello.HelloWorldObject")
+@DomainObject()
 @DomainObjectLayout()  // causes UI events to be triggered
 public class HelloWorldObject implements Comparable<HelloWorldObject> {
 
     protected HelloWorldObject(){}
 
-    @javax.persistence.Id
-    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
-    @javax.persistence.Column(nullable = false, name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, name = "id")
     private Long id;
 
-    @javax.persistence.Version
-    @javax.persistence.Column(nullable = false, name = "version")
+    @Version
+    @Column(nullable = false, name = "version")
     private int version;
 
 
@@ -50,12 +63,13 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
-    @javax.persistence.Column(length = Name.MAX_LEN, nullable = false, name = "name")
+
+    @Column(length = Name.MAX_LEN, nullable = false, name = "name")
     private String name;
 
     @Title(prepend = "Object: ")
     @Name
-    @PropertyLayout(fieldSetId = "identity", sequence = "1")
+    @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.IDENTITY, sequence = "1")
     public String getName() {
         return name;
     }
@@ -64,17 +78,19 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
-    @javax.persistence.Column(length = Notes.MAX_LEN, nullable = true, name = "notes")
+
+    @Column(length = Notes.MAX_LEN, nullable = true, name = "notes")
     private String notes;
 
     @Notes
-    @PropertyLayout(fieldSetId = "details", sequence = "1")
+    @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.DETAILS, sequence = "1")
     public String getNotes() {
         return notes;
     }
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
 
 
     @Action(
@@ -95,10 +111,12 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
+
     @Action(
             semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE
     )
     @ActionLayout(
+            fieldSetId = LayoutConstants.FieldSetId.IDENTITY,
             describedAs = "Deletes this object from the database",
             position = ActionLayout.Position.PANEL
     )
@@ -107,6 +125,8 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
         messageService.informUser(String.format("'%s' deleted", title));
         repositoryService.removeAndFlush(this);
     }
+
+
 
     @Override
     public String toString() {
@@ -119,8 +139,8 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
-    @Inject @javax.persistence.Transient RepositoryService repositoryService;
-    @Inject @javax.persistence.Transient TitleService titleService;
-    @Inject @javax.persistence.Transient MessageService messageService;
+    @Inject @Transient RepositoryService repositoryService;
+    @Inject @Transient TitleService titleService;
+    @Inject @Transient MessageService messageService;
 
 }
