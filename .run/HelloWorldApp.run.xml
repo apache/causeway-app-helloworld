@@ -3,6 +3,7 @@
     <option name="ACTIVE_PROFILES" />
     <module name="helloworld-jpa" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="domainapp.webapp.HelloWorldApp" />
+    <option name="VM_PARAMETERS" value="-javaagent:lib/spring-instrument.jar" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

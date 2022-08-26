@@ -26,6 +26,13 @@
     <build>
         <resources>
             <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>application.yml</include>
+                </includes>
+            </resource>
+            <resource>
                 <filtering>false</filtering>
                 <directory>src/main/resources</directory>
             </resource>
@@ -47,6 +54,9 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <classifier>exec</classifier>
+                    <agents>
+                        <agent>${env.HOME}/.m2/repository/org/springframework/spring-instrument/${spring-framework.version}/spring-instrument-${spring-framework.version}.jar</agent>
+                    </agents>
                 </configuration>
             </plugin>
         </plugins>
@@ -71,13 +81,18 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+            <groupId>org.apache.isis.viewer</groupId>
+            <artifactId>isis-viewer-wicket-applib</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.apache.isis.testing</groupId>
             <artifactId>isis-testing-h2console-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator-autoconfigure</artifactId>
         </dependency>
 
     </dependencies>

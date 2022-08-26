@@ -13,6 +13,7 @@ import org.apache.isis.persistence.jpa.eclipselink.IsisModulePersistenceJpaEclip
 import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
 import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
+import org.apache.isis.viewer.wicket.applib.IsisModuleViewerWicketApplibMixins;
 import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 
 import domainapp.modules.hello.HelloWorldModule;
@@ -26,6 +27,7 @@ import domainapp.modules.hello.HelloWorldModule;
         IsisModuleSecurityShiro.class,
         IsisModulePersistenceJpaEclipselink.class,
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
+        IsisModuleViewerWicketApplibMixins.class,
         IsisModuleViewerWicketViewer.class,
 
         IsisModuleTestingH2ConsoleUi.class,
