@@ -26,6 +26,13 @@
     <build>
         <resources>
             <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>application.yml</include>
+                </includes>
+            </resource>
+            <resource>
                 <filtering>false</filtering>
                 <directory>src/main/resources</directory>
             </resource>
@@ -71,13 +78,18 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+            <groupId>org.apache.isis.viewer</groupId>
+            <artifactId>isis-viewer-wicket-applib</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.apache.isis.testing</groupId>
             <artifactId>isis-testing-h2console-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator-autoconfigure</artifactId>
         </dependency>
 
     </dependencies>
