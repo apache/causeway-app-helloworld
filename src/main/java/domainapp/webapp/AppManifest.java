@@ -5,36 +5,36 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
-import org.apache.isis.applib.IsisModuleApplibChangeAndExecutionLoggers;
-import org.apache.isis.applib.IsisModuleApplibMixins;
-import org.apache.isis.core.config.presets.IsisPresets;
-import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.persistence.jpa.eclipselink.IsisModulePersistenceJpaEclipselink;
-import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
-import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
-import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
-import org.apache.isis.viewer.wicket.applib.IsisModuleViewerWicketApplibMixins;
-import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
+import org.apache.causeway.applib.CausewayModuleApplibChangeAndExecutionLoggers;
+import org.apache.causeway.applib.CausewayModuleApplibMixins;
+import org.apache.causeway.core.config.presets.CausewayPresets;
+import org.apache.causeway.core.runtimeservices.CausewayModuleCoreRuntimeServices;
+import org.apache.causeway.persistence.jpa.eclipselink.CausewayModulePersistenceJpaEclipselink;
+import org.apache.causeway.security.shiro.CausewayModuleSecurityShiro;
+import org.apache.causeway.testing.h2console.ui.CausewayModuleTestingH2ConsoleUi;
+import org.apache.causeway.viewer.restfulobjects.jaxrsresteasy4.CausewayModuleViewerRestfulObjectsJaxrsResteasy4;
+import org.apache.causeway.viewer.wicket.applib.CausewayModuleViewerWicketApplibMixins;
+import org.apache.causeway.viewer.wicket.viewer.CausewayModuleViewerWicketViewer;
 
 import domainapp.modules.hello.HelloWorldModule;
 
 @Configuration
 @Import({
-        IsisModuleApplibMixins.class,
-        IsisModuleApplibChangeAndExecutionLoggers.class,
+        CausewayModuleApplibMixins.class,
+        CausewayModuleApplibChangeAndExecutionLoggers.class,
 
-        IsisModuleCoreRuntimeServices.class,
-        IsisModuleSecurityShiro.class,
-        IsisModulePersistenceJpaEclipselink.class,
-        IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
-        IsisModuleViewerWicketApplibMixins.class,
-        IsisModuleViewerWicketViewer.class,
+        CausewayModuleCoreRuntimeServices.class,
+        CausewayModuleSecurityShiro.class,
+        CausewayModulePersistenceJpaEclipselink.class,
+        CausewayModuleViewerRestfulObjectsJaxrsResteasy4.class,
+        CausewayModuleViewerWicketApplibMixins.class,
+        CausewayModuleViewerWicketViewer.class,
 
-        IsisModuleTestingH2ConsoleUi.class,
+        CausewayModuleTestingH2ConsoleUi.class,
         HelloWorldModule.class
 })
 @PropertySources({
-    @PropertySource(IsisPresets.NoTranslations),
+    @PropertySource(CausewayPresets.NoTranslations),
 })
 public class AppManifest {
 }

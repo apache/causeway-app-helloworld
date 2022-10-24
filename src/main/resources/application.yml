@@ -3,7 +3,7 @@
 #
 # See also config/application.properties
 #
-isis:
+causeway:
 
   applib:
     annotation:
@@ -29,7 +29,7 @@ isis:
     wicket:
       application:
         about: Hello World
-        brand-logo-header: images/apache-isis/logo-48x48.png
+        brand-logo-header: images/apache-causeway/logo-48x48.png
         css: css/application.css
         favicon-url: images/favicon.png
         js: scripts/application.js
@@ -37,9 +37,9 @@ isis:
         name: Hello World App
 
       credit:
-        - url:  http://isis.apache.org
-          image: images/apache-isis/logo-48x48.png
-          name: Apache Isis
+        - url:  http://causeway.apache.org
+          image: images/apache-causeway/logo-48x48.png
+          name: Apache Causeway
 
       bookmarked-pages:
         show-chooser: true

@@ -15,19 +15,19 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
-import org.apache.isis.applib.annotation.Action;
-import org.apache.isis.applib.annotation.ActionLayout;
-import org.apache.isis.applib.annotation.DomainObject;
-import org.apache.isis.applib.annotation.DomainObjectLayout;
-import org.apache.isis.applib.annotation.PropertyLayout;
-import org.apache.isis.applib.annotation.Publishing;
-import org.apache.isis.applib.annotation.SemanticsOf;
-import org.apache.isis.applib.annotation.Title;
-import org.apache.isis.applib.layout.LayoutConstants;
-import org.apache.isis.applib.services.message.MessageService;
-import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.applib.services.title.TitleService;
-import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
+import org.apache.causeway.applib.annotation.Action;
+import org.apache.causeway.applib.annotation.ActionLayout;
+import org.apache.causeway.applib.annotation.DomainObject;
+import org.apache.causeway.applib.annotation.DomainObjectLayout;
+import org.apache.causeway.applib.annotation.PropertyLayout;
+import org.apache.causeway.applib.annotation.Publishing;
+import org.apache.causeway.applib.annotation.SemanticsOf;
+import org.apache.causeway.applib.annotation.Title;
+import org.apache.causeway.applib.layout.LayoutConstants;
+import org.apache.causeway.applib.services.message.MessageService;
+import org.apache.causeway.applib.services.repository.RepositoryService;
+import org.apache.causeway.applib.services.title.TitleService;
+import org.apache.causeway.persistence.jpa.applib.integration.CausewayEntityListener;
 
 import domainapp.modules.hello.types.Name;
 import domainapp.modules.hello.types.Notes;
@@ -40,7 +40,7 @@ import domainapp.modules.hello.types.Notes;
                 @UniqueConstraint(name = "HelloWorldObject__name__UNQ", columnNames = {"name"})
         }
 )
-@EntityListeners(IsisEntityListener.class) // injection support
+@EntityListeners(CausewayEntityListener.class) // injection support
 @Named("hello.HelloWorldObject")
 @DomainObject()
 @DomainObjectLayout()  // causes UI events to be triggered

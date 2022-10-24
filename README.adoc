@@ -2,14 +2,14 @@
 :toc:
 :toc-placement!:
 
-image:https://github.com/apache/isis-app-helloworld/workflows/Build%20w/%20Maven%20+%20Jdk%208/badge.svg[]
-image:https://github.com/apache/isis-app-helloworld/workflows/Build%20w/%20Maven%20+%20Jdk%2015/badge.svg[]
+image:https://github.com/apache/causeway-app-helloworld/workflows/Build%20w/%20Maven%20+%20Jdk%208/badge.svg[]
+image:https://github.com/apache/causeway-app-helloworld/workflows/Build%20w/%20Maven%20+%20Jdk%2015/badge.svg[]
 
-This is a minimal link:https://isis.apache.org[Apache Isis] application, intended as a starting point to learn what the framework is all about.
+This is a minimal link:https://causeway.apache.org[Apache Causeway] application, intended as a starting point to learn what the framework is all about.
 
 [TIP]
 ====
-For real-world development, we recommend you instead start with the link:https://github.com/apache/isis-app-simpleapp[SimpleApp] starter app.
+For real-world development, we recommend you instead start with the link:https://github.com/apache/causeway-app-simpleapp[SimpleApp] starter app.
 
 It provides more structure and includes examples of fixtures, unit tests, integration tests, and BDD (Cucumber) specs.
 ====
@@ -29,7 +29,7 @@ toc::[]
 APP=helloworld
 BRANCH=master
 
-REPO=isis-app-$APP
+REPO=causeway-app-$APP
 curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" | jar xv
 mv $REPO-$BRANCH $REPO
 cd $REPO
