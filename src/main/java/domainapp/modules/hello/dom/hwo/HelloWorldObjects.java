@@ -6,16 +6,16 @@ import javax.annotation.Priority;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.apache.isis.applib.annotation.Action;
-import org.apache.isis.applib.annotation.ActionLayout;
-import org.apache.isis.applib.annotation.DomainService;
-import org.apache.isis.applib.annotation.NatureOfService;
-import org.apache.isis.applib.annotation.PriorityPrecedence;
-import org.apache.isis.applib.annotation.PromptStyle;
-import org.apache.isis.applib.annotation.RestrictTo;
-import org.apache.isis.applib.annotation.SemanticsOf;
-import org.apache.isis.applib.query.Query;
-import org.apache.isis.applib.services.repository.RepositoryService;
+import org.apache.causeway.applib.annotation.Action;
+import org.apache.causeway.applib.annotation.ActionLayout;
+import org.apache.causeway.applib.annotation.DomainService;
+import org.apache.causeway.applib.annotation.NatureOfService;
+import org.apache.causeway.applib.annotation.PriorityPrecedence;
+import org.apache.causeway.applib.annotation.PromptStyle;
+import org.apache.causeway.applib.annotation.RestrictTo;
+import org.apache.causeway.applib.annotation.SemanticsOf;
+import org.apache.causeway.applib.query.Query;
+import org.apache.causeway.applib.services.repository.RepositoryService;
 
 
 import domainapp.modules.hello.types.Name;
