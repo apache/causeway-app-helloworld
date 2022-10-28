@@ -121,7 +121,7 @@
                                 </ports>
                             </container>
                             <to>
-                                <image>docker.io/apachecauseway/helloworld</image>
+                                <image>docker.io/apacheisis/helloworld</image>
                                 <tags>
                                     <tag>${env.REVISION}</tag>
                                 </tags>
