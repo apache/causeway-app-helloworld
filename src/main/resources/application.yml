@@ -26,21 +26,20 @@ causeway:
         explicit-object-type: true
 
   viewer:
-    wicket:
+    common:
       application:
         about: Hello World
         brand-logo-header: images/apache-causeway/logo-48x48.png
-        css: css/application.css
         favicon-url: images/favicon.png
-        js: scripts/application.js
-        menubars-layout-xml: menubars.layout.xml
+        menubars-layout-file: menubars.layout.xml
         name: Hello World App
-
       credit:
         - url:  http://causeway.apache.org
           image: images/apache-causeway/logo-48x48.png
           name: Apache Causeway
-
+    wicket:
+      css: css/application.css
+      js: scripts/application.js
       bookmarked-pages:
         show-chooser: true
         show-drop-down-on-footer: true
