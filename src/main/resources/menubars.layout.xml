@@ -59,7 +59,6 @@
             <mb3:section>
                 <mb3:named>Manual Testing</mb3:named>
                 <mb3:serviceAction id="downloadSitemap" objectType="causeway.applib.SitemapServiceMenu">
-                    <cpt:logicalTypeName>causeway.applib.SitemapServiceMenu</cpt:logicalTypeName>
                     <cpt:named>Download Site-Map Template (Adoc)</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
