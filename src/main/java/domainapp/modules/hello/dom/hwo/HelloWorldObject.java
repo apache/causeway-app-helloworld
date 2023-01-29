@@ -1,26 +1,19 @@
 package domainapp.modules.hello.dom.hwo;
 
+import domainapp.modules.hello.types.Name;
+import domainapp.modules.hello.types.Notes;
+
 import java.util.Comparator;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.jdo.annotations.*;
 
-import org.apache.causeway.applib.annotation.Action;
-import org.apache.causeway.applib.annotation.ActionLayout;
-import org.apache.causeway.applib.annotation.DomainObject;
-import org.apache.causeway.applib.annotation.DomainObjectLayout;
-import org.apache.causeway.applib.annotation.PropertyLayout;
-import org.apache.causeway.applib.annotation.Publishing;
-import org.apache.causeway.applib.annotation.SemanticsOf;
-import org.apache.causeway.applib.annotation.Title;
+import org.apache.causeway.applib.annotation.*;
 import org.apache.causeway.applib.layout.LayoutConstants;
 import org.apache.causeway.applib.services.message.MessageService;
 import org.apache.causeway.applib.services.repository.RepositoryService;
 import org.apache.causeway.applib.services.title.TitleService;
-
-import domainapp.modules.hello.types.Name;
-import domainapp.modules.hello.types.Notes;
 
 @PersistenceCapable(
         schema = "hello",

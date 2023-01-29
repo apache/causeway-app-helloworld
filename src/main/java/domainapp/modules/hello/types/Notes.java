@@ -5,13 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.apache.causeway.applib.annotation.Editing;
-import org.apache.causeway.applib.annotation.Optionality;
-import org.apache.causeway.applib.annotation.Parameter;
-import org.apache.causeway.applib.annotation.ParameterLayout;
-import org.apache.causeway.applib.annotation.Property;
-import org.apache.causeway.applib.annotation.PropertyLayout;
-import org.apache.causeway.applib.annotation.Where;
+import org.apache.causeway.applib.annotation.*;
 
 @javax.jdo.annotations.Column(length = Notes.MAX_LEN, allowsNull = "true")
 @Property(editing = Editing.ENABLED, maxLength = Notes.MAX_LEN, optionality = Optionality.OPTIONAL)
