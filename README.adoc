@@ -73,6 +73,8 @@ The app runs with H2 running in-memory.
 [#orm-support]
 == ORM Support
 
+// EclipseLink : START
+
 This version of the application uses EclipseLink JPA as its ORM, configured with load-time weaving.
 This requires that the application be run with a Java agent.
 
@@ -95,7 +97,11 @@ Change "XXX" to the value that `${spring-framework.version}` resolves to in the 
 -javaagent:lib/spring-instrument.jar
 ----
 
+// EclipseLink : END
 
+
+
+// DataNucleus : START
 
 //This version of the application uses DataNucleus as its ORM, which requires that any entities are "enhanced", a post-compile process.
 //
@@ -110,3 +116,4 @@ Change "XXX" to the value that `${spring-framework.version}` resolves to in the 
 //
 //TIP: You can also use `enhance-all.sh`
 
+// DataNucleus : END

@@ -78,7 +78,6 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
-
     @Column(length = Notes.MAX_LEN, nullable = true, name = "notes")
     private String notes;
 
