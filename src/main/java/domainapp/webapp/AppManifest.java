@@ -25,7 +25,6 @@ import domainapp.modules.hello.HelloWorldModule;
 
         CausewayModuleCoreRuntimeServices.class,
         CausewayModuleSecurityShiro.class,
-
         CausewayModulePersistenceJdoDatanucleus.class,
         CausewayModuleViewerRestfulObjectsJaxrsResteasy.class,
         CausewayModuleViewerWicketApplibMixins.class,
