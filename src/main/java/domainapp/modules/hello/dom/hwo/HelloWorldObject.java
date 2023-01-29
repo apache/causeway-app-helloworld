@@ -4,15 +4,7 @@ import java.util.Comparator;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.jdo.annotations.DatastoreIdentity;
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Queries;
-import javax.jdo.annotations.Query;
-import javax.jdo.annotations.Unique;
-import javax.jdo.annotations.Version;
-import javax.jdo.annotations.VersionStrategy;
+import javax.jdo.annotations.*;
 
 import org.apache.causeway.applib.annotation.Action;
 import org.apache.causeway.applib.annotation.ActionLayout;
@@ -132,8 +124,8 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     }
 
 
-    @Inject RepositoryService repositoryService;
-    @Inject TitleService titleService;
-    @Inject MessageService messageService;
+    @Inject @NotPersistent RepositoryService repositoryService;
+    @Inject @NotPersistent TitleService titleService;
+    @Inject @NotPersistent MessageService messageService;
 
 }
