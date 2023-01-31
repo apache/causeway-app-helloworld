@@ -1,15 +1,22 @@
 package domainapp.modules.hello.dom.hwo;
 
-import domainapp.modules.hello.types.Name;
-
 import java.util.List;
 
 import javax.annotation.Priority;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.apache.causeway.applib.annotation.*;
+import org.apache.causeway.applib.annotation.Action;
+import org.apache.causeway.applib.annotation.ActionLayout;
+import org.apache.causeway.applib.annotation.DomainService;
+import org.apache.causeway.applib.annotation.NatureOfService;
+import org.apache.causeway.applib.annotation.PriorityPrecedence;
+import org.apache.causeway.applib.annotation.PromptStyle;
+import org.apache.causeway.applib.annotation.RestrictTo;
+import org.apache.causeway.applib.annotation.SemanticsOf;
 import org.apache.causeway.applib.services.repository.RepositoryService;
+
+import domainapp.modules.hello.types.Name;
 
 @Named("hello.HelloWorldObjects")
 @DomainService(nature = NatureOfService.VIEW)
