@@ -34,7 +34,7 @@ causeway:
         menubars-layout-file: menubars.layout.xml
         name: Hello World App
       credit:
-        - url:  http://causeway.apache.org
+        - url:  https://causeway.apache.org
           image: images/apache-causeway/logo-65x48.png
           name: Apache Causeway
     wicket:
