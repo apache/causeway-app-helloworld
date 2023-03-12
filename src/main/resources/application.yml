@@ -29,10 +29,13 @@ causeway:
     common:
       application:
         about: Hello World
+        brand-logo-signin: images/apache-causeway/logo-banner-591x120.png
         brand-logo-header: images/apache-causeway/logo-65x48.png
         favicon-url: images/favicon.png
         menubars-layout-file: menubars.layout.xml
         name: Hello World App
+        # https://stackoverflow.com/a/38983935/56880
+        version: @project.version@
       credit:
         - url:  https://causeway.apache.org
           image: images/apache-causeway/logo-65x48.png
