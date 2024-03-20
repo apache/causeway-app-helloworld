@@ -10,7 +10,6 @@ import org.apache.causeway.applib.CausewayModuleApplibMixins;
 import org.apache.causeway.core.config.presets.CausewayPresets;
 import org.apache.causeway.core.runtimeservices.CausewayModuleCoreRuntimeServices;
 import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleus;
-import org.apache.causeway.security.shiro.CausewayModuleSecurityShiro;
 import org.apache.causeway.testing.h2console.ui.CausewayModuleTestingH2ConsoleUi;
 import org.apache.causeway.viewer.restfulobjects.jaxrsresteasy.CausewayModuleViewerRestfulObjectsJaxrsResteasy;
 import org.apache.causeway.viewer.wicket.applib.CausewayModuleViewerWicketApplibMixins;
@@ -24,7 +23,8 @@ import domainapp.modules.hello.HelloWorldModule;
         CausewayModuleApplibChangeAndExecutionLoggers.class,
 
         CausewayModuleCoreRuntimeServices.class,
-        CausewayModuleSecurityShiro.class,
+
+        //CausewayModuleSecurityXxx.class,
         CausewayModulePersistenceJdoDatanucleus.class,
         CausewayModuleViewerRestfulObjectsJaxrsResteasy.class,
         CausewayModuleViewerWicketApplibMixins.class,

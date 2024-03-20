@@ -2,8 +2,6 @@ package domainapp.modules.hello.dom.hwo;
 
 import java.util.Comparator;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -14,6 +12,9 @@ import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Version;
 import javax.jdo.annotations.VersionStrategy;
+
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import org.apache.causeway.applib.annotation.Action;
 import org.apache.causeway.applib.annotation.ActionLayout;
@@ -69,7 +70,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -81,7 +82,7 @@ public class HelloWorldObject implements Comparable<HelloWorldObject> {
     public String getNotes() {
         return notes;
     }
-    public void setNotes(String notes) {
+    public void setNotes(final String notes) {
         this.notes = notes;
     }
 
