@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.apache.causeway.applib.CausewayModuleApplibChangeAndExecutionLoggers;
@@ -43,6 +44,11 @@ import domainapp.modules.hello.HelloWorldModule;
     @PropertySource(CausewayPresets.NoTranslations),
 })
 public class AppManifest {
+
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     /**
      * Sets up a simple in-memory authentication/authorization realm.
