@@ -66,12 +66,12 @@ public class AppManifest {
                     ? Grant.CHANGE
                     : Grant.NONE)
             .addRole("default_role", id->
-                id.getFullIdentityString().startsWith("causeway.applib")
-                    || id.getFullIdentityString().startsWith("causeway.security")
+                id.getLogicalType().getNamespace().startsWith("causeway.applib")
+                    || id.getLogicalType().getNamespace().startsWith("causeway.security")
                     ? Grant.CHANGE
                     : Grant.NONE)
             .addRole("fixtures_role", id->
-                id.getFullIdentityString().startsWith("causeway.testing.fixtures")
+                id.getLogicalType().getNamespace().startsWith("causeway.testing.fixtures")
                     ? Grant.CHANGE
                     : Grant.NONE)
             .addUser("sven", hashedPass, List.of("admin_role"))
