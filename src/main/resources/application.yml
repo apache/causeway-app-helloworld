@@ -20,10 +20,9 @@ causeway:
     meta-model:
       introspector:
         lock-after-full-introspection: true
+        mode: full
       validator:
         allow-deprecated: false
-        no-params-only: true
-        explicit-object-type: true
 
   viewer:
     common:
@@ -52,6 +51,15 @@ causeway:
 
       themes:
         show-chooser: true
+    graphql:
+      api-variant: query_with_mutations_non_spec_compliant
+      authentication:
+        fallback:
+          username: sven
+          roles:
+            - simple-superuser
+            - foo
+            - bar
 
 
 # note that properties under 'datanucleus' must use camelCase rather than kebab-case
@@ -81,6 +89,13 @@ server:
 spring:
   banner:
     location: banner.txt
+  graphql:
+    graphiql:
+      enabled: true
+      path: "/graphiql"
+    schema:
+      printer:
+        enabled: true
 
 management:
   endpoint:

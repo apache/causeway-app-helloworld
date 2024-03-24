@@ -19,6 +19,7 @@ import org.apache.causeway.security.simple.CausewayModuleSecuritySimple;
 import org.apache.causeway.security.simple.realm.SimpleRealm;
 import org.apache.causeway.security.simple.realm.SimpleRealm.Grant;
 import org.apache.causeway.testing.h2console.ui.CausewayModuleTestingH2ConsoleUi;
+import org.apache.causeway.viewer.graphql.viewer.CausewayModuleViewerGraphqlViewer;
 import org.apache.causeway.viewer.restfulobjects.jaxrsresteasy.CausewayModuleViewerRestfulObjectsJaxrsResteasy;
 import org.apache.causeway.viewer.wicket.applib.CausewayModuleViewerWicketApplibMixins;
 import org.apache.causeway.viewer.wicket.viewer.CausewayModuleViewerWicketViewer;
@@ -31,10 +32,10 @@ import domainapp.modules.hello.HelloWorldModule;
         CausewayModuleApplibChangeAndExecutionLoggers.class,
 
         CausewayModuleCoreRuntimeServices.class,
-
         CausewayModuleSecuritySimple.class,
         CausewayModulePersistenceJdoDatanucleus.class,
         CausewayModuleViewerRestfulObjectsJaxrsResteasy.class,
+        CausewayModuleViewerGraphqlViewer.class,
         CausewayModuleViewerWicketApplibMixins.class,
         CausewayModuleViewerWicketViewer.class,
 
