@@ -4,52 +4,62 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Apache Causeway&trade; HelloWorld</title>
 
-        <link rel="stylesheet" type="text/css" href="css/page.css">
-    </head>
-    <body>
-        <div id="wrapper">
-            <img alt="Causeway Logo" src="images/apache-causeway/logo-banner-591x120.png" />
+    <link rel="stylesheet" type="text/css" href="css/page.css">
+</head>
+<body>
+<div id="wrapper">
+    <img alt="Causeway Logo" src="images/apache-causeway/logo-banner-591x120.png" />
 
+    <p>
+        This is a minimal <a href="https://causeway.apache.org">Apache Causeway</a> application, intended to
+        help you understand what the framework is all about.  (If you want to start building your own apps,
+        we recommend that you instead use the companion &quot;simple app&quot; as a starter template).
+        <br/>
+    </p>
+
+    <p>To access the app:</p>
+    <ul>
+        <li>
             <p>
-                This is a minimal <a href="https://causeway.apache.org">Apache Causeway</a> application, intended to
-                help you understand what the framework is all about.  (If you want to start building your own apps,
-                we recommend that you instead use the companion &quot;simple app&quot; as a starter template).
-                <br/>
+                <b><a href="wicket/">Generic UI (Wicket)</a></b>
             </p>
-
-            <p>To access the app:</p>
-            <ul>
-                <li>
-                    <p>
-                        <b><a href="wicket/">Generic UI (Wicket)</a></b>
-                    </p>
-                    <p>
-                        provides access to a generic UI for end-users.  This
-                        viewer is built with <a href="http://wicket.apache.org" target="_blank">Apache Wicket</a>&trade;.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <b>
-                            <a href="swagger-ui/index.thtml">RESTful API (Swagger)</a>
-                        </b>
-                    </p>
-                    <p>
-                        provides access to a Swagger UI for convenient access
-                        to (a subset of) the automatically generated REST API.
-                    </p>
-                    <p>
-                        The full backend API (at <a href="restful/">restful/</a>) renders both simple and also richer
-                        hypermedia representations of domain objects, the latter conforming to the
-                        <a href="http://restfulobjects.org"  target="_blank">Restful Objects</a> spec.
-                    </p>
-                </li>
-            </ul>
-
             <p>
-            The default user/password is <b><i>sven/pass</i></b>.
+                provides access to a generic UI for end-users.  This
+                viewer is built with <a href="http://wicket.apache.org" target="_blank">Apache Wicket</a>&trade;.
             </p>
+        </li>
+        <li>
+            <p>
+                <b>
+                    <a href="graphiql">GraphQL</a>
+                </b>
+            </p>
+            <p>
+                provides access to the GraphQL API using the <a href="https://github.com/graphql/graphiql">GraphiQL</a> console.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>
+                    <a href="swagger-ui/index.thtml">RESTful API (Swagger)</a>
+                </b>
+            </p>
+            <p>
+                provides access to a Swagger UI for convenient access
+                to (a subset of) the automatically generated REST API.
+            </p>
+            <p>
+                The full backend API (at <a href="restful/">restful/</a>) renders both simple and also richer
+                hypermedia representations of domain objects, the latter conforming to the
+                <a href="https://www.restfulobjects.org"  target="_blank">Restful Objects</a> spec.
+            </p>
+        </li>
+    </ul>
 
-        </div>
-    </body>
+    <p>
+        The default user/password is <b><i>sven/pass</i></b>.
+    </p>
+
+</div>
+</body>
 </html>
