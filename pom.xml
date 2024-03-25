@@ -13,6 +13,7 @@
 
     <artifactId>helloworld-jdo</artifactId>
     <groupId>org.apache.causeway.starters</groupId>
+    <version>3.0.0-SNAPSHOT</version>
 
     <name>HelloWorld (JDO)</name>
 
