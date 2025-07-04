@@ -20,8 +20,8 @@ toc::[]
 
 * install prereqs:
 
-** Java 11 LTS (eg link:https://adoptopenjdk.net/[Adopt OpenJDK] distribution)
-** Maven 3.6 or later (http://maven.apache.org/download.cgi[download])
+** Java 21 LTS (eg link:https://adoptopenjdk.net/[Adopt OpenJDK] distribution)
+** Maven 3.9.10 or later (http://maven.apache.org/download.cgi[download])
 * download and unzip
 +
 [source,bash]
