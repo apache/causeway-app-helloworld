@@ -60,6 +60,8 @@ causeway:
             - simple-superuser
             - foo
             - bar
+    restfulobjects:
+      basePath: /restful
 
 
 eclipselink:
@@ -77,7 +79,7 @@ resteasy:
     defaultPath: "/restful"
 
 server:
-  max-http-header-size: 16KB
+  max-http-request-header-size: 16KB
 
 spring:
   banner:
