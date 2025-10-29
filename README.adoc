@@ -35,6 +35,7 @@ cd $REPO
 * Build using Maven:
 +
 [source,bash]
+.build.sh
 ----
 mvn clean install
 ----
@@ -42,6 +43,7 @@ mvn clean install
 * Run using Maven:
 +
 [source,bash]
+.run.sh
 ----
 mvn spring-boot:run
 ----
