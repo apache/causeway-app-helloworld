@@ -189,7 +189,7 @@
             <id>nightly</id>
             <activation>
                 <property>
-                    <name>!skip.nightly</name>
+                    <name>use.nightly</name>
                 </property>
             </activation>
             <repositories>
