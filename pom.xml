@@ -7,13 +7,13 @@
     <parent>
         <groupId>org.apache.causeway.app</groupId>
         <artifactId>causeway-app-starter-parent</artifactId>
-        <version>3.4.0</version>
+        <version>3.5.0</version>
         <relativePath/>
     </parent>
 
     <artifactId>helloworld-jdo</artifactId>
     <groupId>org.apache.causeway.starters</groupId>
-    <version>3.4.0</version>
+    <version>3.5.0</version>
 
     <name>HelloWorld (JDO)</name>
 
@@ -21,6 +21,7 @@
 
     <properties>
         <java.version>21</java.version>
+        <eclipselink-maven-plugin.version>3.0.2</eclipselink-maven-plugin.version>
 		<!-- https://stackoverflow.com/questions/38983934/cannot-get-maven-project-version-property-in-a-spring-application-with-value/38983935#38983935 -->
 		<resource.delimiter>^</resource.delimiter>
     </properties>
@@ -175,7 +176,7 @@
             <id>nightly</id>
             <activation>
                 <property>
-                    <name>!skip.nightly</name>
+                    <name>use.nightly</name>
                 </property>
             </activation>
             <repositories>
