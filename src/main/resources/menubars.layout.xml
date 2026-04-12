@@ -34,6 +34,9 @@
                 <mb3:named>Meta Model and Features</mb3:named>
                 <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModel"/>
                 <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelDiff"/>
+                <mb3:serviceAction objectType="causeway.metamodel.MetamodelInspectMenu" id="inspect">
+                    <cpt:named>Inspect type</cpt:named>
+                </mb3:serviceAction>
                 <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allNamespaces"/>
                 <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allTypes"/>
                 <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allActions"/>
